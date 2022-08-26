@@ -1,0 +1,10 @@
+#titleFull {
+    display: none;
+}
+#titleSmall {
+    display: block;
+}
+
+h4 {
+    color:yellow;
+}

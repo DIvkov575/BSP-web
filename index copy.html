@@ -5,29 +5,28 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" >
-    <link rel="stylesheet" media="(max-width:400px)" href="phoneSheet.css" > 
     <title>BSP</title>
   </head>
   <body>
     <canvas id="bg" ></canvas>
 
+
     <main>
       <div id="navbar" style="background-color: 'rbga(0,0,0,1)'; display: flex; justify-content: space-between; grid-column:1/13;">
         <div style="height:100px;width:520px;">
-          <h4 style="font-size:40px; margin:0px;" id="titleFull">Belmont School of Programming</h4>
-          <h4 style="font-size:40px; margin:0px;" id="titleSmall">BSP</h4>
+          <h4 style="font-size:40px; margin:0px;">Belmont School of Programming</h4>
         </div>
         <div style="display: flex; flex-flow:row; align-items:center; margin-top:15px;">
+          <div>Home</div>
           <div>Courses</div>
           <div>Instructors</div>
         </div>
 
       </div>   
       
-
-      <header style="margin-top: 125px; margin-bottom: 700px; height:400px" class="fullBlock">
+      <header style="margin-top: 70px; margin-bottom: 100px; height:400px" class="fullBlock">
         <h4>
-        Learn how to program in Python in 10 classes
+        Learn how to program in Python in as low as 10 classes
         </h4>  
         <div style="display:flex; justify-content:space-between">
           <div>
@@ -41,18 +40,23 @@
 
       </header>
 
+
       <div style="left: 100px; margin-bottom: 100px; padding-top:0px" class="fullBlock">
         <h4>Courses</h4>
         <h5>
-          This year  Belmont School of Programming is offering a python course covering everything you may need to know, inorder to begin programming.
-          Both courses will consist of 10 classes that will both be held over google meet's. 
-          classes will be held on Saturdays at 10 AM and Tuesdays at 4:30 PM starting on september 17.
-          In order to sign-up please fill out this google form.
+          This year Belmont School of Programming is offering two courses: Python 101 & Python 102
         </h5>
-        <button></button>
+        <h6>
+          <u>Python 101</u> is the course covering all programming fundamentals required to start programming    
+          <br>
+          <u>Python 102</u> is the subsequent course, that will focus on algorithms and advanced datastructures built from scratch.
+        </h6>
+        <h5>
+          Both courses will consist of 10 classes that will both be held over a google meet. 
+        </h5>
       </div>
 
-      <div style="left: 100px; height:625px; ; margin-bottom: 1400px;" class="fullBlock" >
+      <div style="left: 100px; height:625px; ; margin-bottom: 100px;" class="fullBlock" >
         <h4>Python 101</h4>
         <h5>Topics our course will cover in 10 classes:</h5>
         <h6>
@@ -68,14 +72,12 @@
           <li>Loop Operations</li>
           <li>Data-Types and Structures</li>
           <li>OOP</li>
-          <li>Game Dev</li>
         </ul>
-        <!-- <h6 style="color:grey">59.99$ for 10 hours</h6> -->
-        <button id="formButton" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSf4MyqHRNm2eDlSZ0SGqRX5m1F5BHL3AYFngNSB2uuNUuPHTw/viewform?usp=sf_link', '_blank')">$59.99</button>
-        <div style="margin-left:40%">\/ About \/</div>
+        <h6 style="color:grey">59.99$ for 10 hours</h6>
+        <button id="formButton" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSf4MyqHRNm2eDlSZ0SGqRX5m1F5BHL3AYFngNSB2uuNUuPHTw/viewform?usp=sf_link', '_blank')">Sign-up</button>
       </div>
 
-      <!-- <div style="left: 100px; height:500px;" class="fullBlock" >
+      <div style="left: 100px; height:500px;" class="fullBlock" >
         <h4>Python 102</h4>
         <h5>Topics our course will cover in 10 classes</h5>
         <h6>Python 102 is the subsequent class to Python 101. Python 102 will focus on more conceptual programming on topics such as algorithms and datastructures that will be built from scratch. </h6>
@@ -99,11 +101,12 @@
       </div>
 
         <h6 style="color:grey">59.99$ for 10 hours</h6>
-        <button id="formButton" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSf4MyqHRNm2eDlSZ0SGqRX5m1F5BHL3AYFngNSB2uuNUuPHTw/viewform?usp=sf_link', '_blank')">Sign-up</button> -->
-      <!-- </div> -->
+        <button id="formButton" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSf4MyqHRNm2eDlSZ0SGqRX5m1F5BHL3AYFngNSB2uuNUuPHTw/viewform?usp=sf_link', '_blank')">Sign-up</button>
+
+      </div>
 
       
-      <div style="left: 100px;" class="fullBlock" id="aboutDimaBlock">
+      <div style="left: 100px;" class="fullBlock">
         <h4>BSP Teachers</h4>
         <h5>Dmitriy (Dima) Ivkov</h5>
 
@@ -115,8 +118,8 @@
           Im looking forward to teaching you Python!
         </h5>
         <h6 style="margin:0px">You can reach me at Dmitriy@ivkov.net</h6>
-        <!-- <button onclick="window.open('https://www.linkedin.com/in/dmitriy-i-55b29b222/', '_blank')">LinkedIn</button>
-        <button onclick="window.open('https://github.com/DIvkov575', '_blank')">Github</button> -->
+        <button onclick="window.open('https://www.linkedin.com/in/dmitriy-i-55b29b222/', '_blank')">LinkedIn</button>
+        <button onclick="window.open('https://github.com/DIvkov575', '_blank')">Github</button>
 
         <h5>
           Projects and experience
