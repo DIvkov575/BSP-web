@@ -1,0 +1,73 @@
+#deskImg {
+    display:none;
+}
+
+header{
+    margin-top: 90px; 
+    margin-bottom: 700px; 
+    height:350px;
+    grid-column: 2 / span 5;
+    font-size: 2.5rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+}
+header h5,h4 {
+    font-size: 25px;
+    text-align: center;
+}
+#courses {
+    height: 525px;
+    display: flex;
+    justify-content: center;
+    flex-flow:column;
+}
+#py101 {
+    height:850px;
+    display: flex;
+    justify-content: center;
+    flex-flow:column;
+}
+#t1_1 {
+    font-size:30px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top:15px;
+}
+
+#t2 {
+    display: none;
+}
+#t3_1{
+    font-size: 25px;
+    line-height: 30px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+#t3_2{
+ display: none;   
+}
+#t4_1 {
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+#t4_2 {
+    display: none;
+}
+
+#aboutDimaBlock {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    height:2000px;
+}
+#dimaImg {
+    width:75%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+button {
+    width:200px;
+}

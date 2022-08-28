@@ -16,3 +16,11 @@ export function randRotation(item, a){
     item.rotation.axis += a*-0.003
   }
 }
+
+function CopyEmail() {
+  let Url = document.getElementById("url");
+  Url.innerHTML = window.location.href;
+  console.log(Url.innerHTML)
+  Url.select();
+  document.execCommand("copy");
+}

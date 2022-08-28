@@ -1,7 +1,7 @@
 @import url("https://use.typekit.net/jmk3xov.css");
 
 :root {
-    --dark-bg: rgba(15, 15, 15, 0.95);
+    --dark-bg: rgba(15, 15, 15, 0.98);
     --spacing: 350px;
   
     font-family: brandon-grotesque, sans-serif;
@@ -10,40 +10,23 @@
 }
 
 #navbar {
-    width:100%;
-    height:50px;
-    z-index: 100;
-    grid-column: 1 / 8;
-    margin-left:10px;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    position:absolute;
-    left: -10px;
-
-}
-
-#navbar >  div > div {
-    margin-left:10px;
-    margin-top:10px;
-    margin-bottom: 10px;
-    padding: 5px;
-    border: 1px solid white;
-    background-color: rgba(255,255,255, 0.8);
-    color:black
+    grid-column:1/13; 
+    margin-bottom:0px;
+    background-color:rgba(2, 2, 2, 0.80)
 }
 
 .fullBlock {
     grid-column: 1/13;
-    height:400px;
+    /* height:400px; */
     background: var(--dark-bg);
     font-size: 2.5rem;
-    padding: 2rem;
-    margin-bottom: var(--spacing);}
-
-#formButton{
-    text-decoration: none;
+    /* padding: 2rem; */
+    padding-left:7%;
+    padding-top:7%;
+    padding-right:7%;
+    margin-bottom: var(--spacing);
 }
+
 
 * {
     margin-top: 0px;
@@ -73,18 +56,6 @@ body {
     margin: 0;
 }
 
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-header {
-    background: var(--dark-bg);
-    grid-column: 2 / span 5;
-    font-size: 2.5rem;
-    padding: 2rem;
-}
 
 section {
     grid-column: 2 / 8;
@@ -118,15 +89,42 @@ h1, h2, h3, blockquote {
 
 ul {
     margin-top:20px;
+    margin-bottom: 20px;
 }
 
 li {
     font-size:25px;
+    margin-bottom: 5px;
+}
+h4 {
+    color: #5ec9cc;
 }
 
+button {
+    text-decoration: none;
+    border: 3px solid #5ec9cc;
+    border-radius: 3px;
+    width: 300px;
+    height:50px;
+    background-color: #5ec9cc;
+    box-shadow: inset 0 0 0 0 #00263e; 
+    transition: ease-out 0.1s;
+    font-weight:bolder;
+    font-size: 20px;
+    margin-top:10px;
+}
+button:hover {
+    border: 3px solid #00263e;
+    box-shadow: inset 300px 0 0 0 #00263e; 
+    cursor:pointer;
+    color: #000;
+}
 
-
-
+/* body > div {
+    display: view;
+    flex-flow: column;
+    justify-content: center;
+} */
 /* @media (min-with:481px) {
     h4 {
         color:green;

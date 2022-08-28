@@ -11,6 +11,3 @@ camera.fov = 20;
 camera.updateProjectionMatrix();
 
 1) create asteroid feild
-2) finish buttons
-3) change block width + opacity
-4) changes according to screen size !!

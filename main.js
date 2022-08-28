@@ -2,6 +2,8 @@ import './style.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { randRange, randRotation } from './components';
+import { STLLoader } from 'three/examples/jsm/loaders/STLLoader'
+
 
 let cubeList = [];
 const scene = new THREE.Scene();
@@ -45,11 +47,13 @@ function addBigWireFrameCube() {
   scene.add(wireframe);
   return wireframe;
 }
-for (let index = 0; index < 75; index++) {
+for (let index = 0; index < 25; index++) {
+  addWireFrameCube()
+  addWireFrameCube()
   cubeList.push(addWireFrameCube())
 }
 for (let index = 0; index < 3; index++) {
-  cubeList.push(addBigWireFrameCube())
+  addBigWireFrameCube()
 }
 
 
@@ -58,6 +62,22 @@ function addAsteroid() {
   const sphereGeo = new THREE.SphereGeometry(5,20,20);
   const material = new THREE.LineBasicMaterial( {color: 0xff1111});
   const asteroid = new THREE.LineSegments
+
+  const loader = new STLLoader()
+  loader.load(
+    'models/example.stl',
+    function (geometry) {
+        const mesh = new THREE.Mesh(geometry, material)
+        scene.add(mesh)
+    },
+    (xhr) => {
+        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+    },
+    (error) => {
+        console.log(error)
+    }
+)
+
 }
 
 
@@ -71,15 +91,27 @@ function moveCamera() {
     camera.position.x = t * 0.001;
     camera.rotation.y = t * 0.0002;
     camera.rotation.x = t * 0.0005;
+    camera.rotation.z = t * 0.001;
     for (let i = 0; i < cubeList.length; i++){randRotation(cubeList[i], t)}
+  }
+  else if (t > 1300 && t < 1350) {
+    camera.rotation.x = 0.6;
+    camera.rotation.y = 0.763 ;  
+    camera.rotation.z = 4.873;
+    camera.position.x = 1.2;
+    camera.position.y = 0;
+    camera.position.z = 119.8; 
   } 
-  else if (t > 1300 && t < 1400) {
+  else if (t > 1350 && t < 1400) {
   camera.rotation.x = 0;
-  camera.rotation.y = 1;  
+  camera.rotation.y = Math.PI ;  
   camera.rotation.z = 0;
+  camera.position.x = 0;
+  camera.position.y = 75;
+  camera.position.z = 0; 
 }
   else if (t > 900 && t < 1350) {
-    console.log(t)
+  
     camera.rotation.y -= (0-camera.rotation.y) / rate*7
     camera.rotation.z -= (0-camera.rotation.x) / rate*7
     rate += (t-1350) * 0.2
@@ -88,7 +120,9 @@ function moveCamera() {
   else if (t >1800) {
   }
 }
+
 function animate() {
+  cubeList.forEach((cube)=>cube.rotation.x += 0.004)
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
 }
