@@ -10,6 +10,8 @@ header{
     flex-flow: column;
     align-items: center;
     justify-content: center;
+    /*margin-left:3%;*/
+    /*margin-right:3%;*/
 }
 
 header img {

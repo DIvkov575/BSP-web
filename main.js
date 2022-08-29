@@ -7,6 +7,7 @@ import {MeshBasicMaterial} from "three";
 
 //setup
 let cubeList = [];
+let cubeList2 = [];
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({canvas: document.querySelector('#bg'),});
@@ -27,7 +28,7 @@ scene.add( axesHelper );
 
 //lights
 const pointLight = new THREE.PointLight(0xffffff, 1);
-pointLight.position.set(5, 0, 100);
+pointLight.position.set(100, 100, 100);
 scene.add(pointLight)
 
 //  cubes !!
@@ -39,7 +40,7 @@ function addWireFrameCube() {
   const [x, y, z] = Array(3)
     .fill()
     .map(() => THREE.MathUtils.randFloatSpread(150));
-  wireframe.position.set(x, y, z);
+  wireframe.position.set(x, y, z-50);
   wireframe.rotation.x = randRange(0,360);
   wireframe.rotation.y = randRange(0,360);
   wireframe.rotation.z = randRange(0,360);
@@ -54,19 +55,19 @@ function addBigWireFrameCube() {
   const [x, y, z] = Array(3)
     .fill()
     .map(() => THREE.MathUtils.randFloatSpread(150));
-  wireframe.position.set(x, y, z);
+  wireframe.position.set(x, y, z-50);
   wireframe.rotation.x = randRange(0,360);
   wireframe.rotation.y = randRange(0,360);
   wireframe.rotation.z = randRange(0,360);
   scene.add(wireframe);
   return wireframe;
 }
-for (let index = 0; index < 40; index++) {
+for (let index = 0; index < 20; index++) {
   addWireFrameCube()
-  addWireFrameCube()
+  cubeList2.push(addWireFrameCube())
   cubeList.push(addWireFrameCube())
 }
-for (let index = 0; index < 3; index++) {
+for (let index = 0; index < 2; index++) {
   addBigWireFrameCube()
   cubeList.push(addWireFrameCube())
 }
@@ -100,19 +101,41 @@ function addAsteroid() {
 
 }
 
-//grid
-// let gridGeo = new THREE.SphereGeometry( 500, 359,179);
-// let gridMat = new THREE.MeshPhongMaterial( { color: 0x000000 } );
-// let grid = new THREE.Mesh( gridGeo, gridMat );
-// let gridEdge = new THREE.EdgesHelper(grid, 0xaaaaff);
-// gridEdge.material.linewidth = 3;
-// grid.rotateZ(1/2*Math.PI);
-// scene.add(grid);
-// scene.add(gridEdge);
+// grid
+let gridGeo = new THREE.SphereGeometry( 500, 359,179);
+let gridMat = new THREE.MeshPhongMaterial( { color: 0x000000 } );
+let grid = new THREE.Mesh( gridGeo, gridMat );
+let gridEdge = new THREE.EdgesHelper(grid, 0xaaaaff);
+grid.position.x -= 505.1
+gridEdge.position.x -= 505;
+gridEdge.rotation.z += Math.PI/2;
+// grid.rotation.z += Math.PI/2;
+gridEdge.material.linewidth = 3;
+scene.add(grid);
+scene.add(gridEdge);
 
+//plane
+let planeShape = new THREE.PlaneGeometry(100,200,200,400)
+const planeMaterial = new THREE.MeshStandardMaterial({ color: 0x451c09 });
+let plane = new THREE.Mesh( planeShape, planeMaterial );
+let planeEdge = new THREE.EdgesHelper(plane, 0xaaaaff);
+planeEdge.rotation.y = Math.PI/2;
+planeEdge.position.z -= 150
+planeEdge.position.x -= 10
+planeEdge.material.linewidth = 3;
+scene.add(planeEdge);
+
+
+camera.rotation.z = -Math.PI/2
+// camera.position.x += 15;
+camera.rotation.y -= 0.1;
+let prevX
 // Animation !!
 function moveCamera() {
   const t = -document.body.getBoundingClientRect().top;
+  console.log(t)
+  gridEdge.rotation.y -= 0.5
+  // console.log(t)
 //   console.log(
 //   camera.position.x,
 //   camera.position.y,
@@ -121,61 +144,20 @@ function moveCamera() {
 //   camera.rotation.y,
 //   camera.rotation.z
 // )
-  if (t < 50) {
-    camera.rotation.x = 0;
-    camera.rotation.y = 0 ;
-    camera.rotation.z = 0;
-    camera.position.x = -30;
-    camera.position.y = 0;
-    camera.position.z = -0;
-  } else if (t > 50 && t < 1950) {
-    camera.position.z = t * 0.1;
-    camera.position.x = t * 0.001;
-    camera.rotation.y = t * 0.0002;
-    camera.rotation.x = t * 0.0005;
-    camera.rotation.z = t * 0.001;
-    for (let i = 0; i < cubeList.length; i++){randRotation(cubeList[i], t)}
-  }
-  else if (t > 1950 && t < 2050) {
-    camera.rotation.x = Math.PI/2;
-    camera.rotation.y = Math.PI ;
-    camera.rotation.z = Math.PI;
-    camera.position.x = 2;
-    camera.position.y = 0;
-    camera.position.z = 200;
-  }
-//   else if (t > 2050 && t < 2150) {
-//   camera.rotation.x = 0;
-//   camera.rotation.y = 0;
-//   camera.rotation.z = 0;
-//   camera.position.x = 0;
-//   camera.position.y = 0;
-//   camera.position.z = 0;
-// }
-//   else if (t > 1900 && t < 2000) {
-//     camera.rotation.y -= (0-camera.rotation.y) / rate*7
-//     camera.rotation.z -= (0-camera.rotation.x) / rate*7
-//     rate += (t-1350) * 0.2
-//   }
+  if (t < 300) {
 
-  // else if (t >2100) {
-  //   console.log(
-  //       camera.rotation.x,
-  //       camera.rotation.y,
-  //       camera.rotation.z,
-  //       camera.position.x,
-  //       camera.position.y,
-  //       camera.position.z,
-  //   )
-
+  } else if (t > 700 && t < 1000) {
+    let cube1 = addWireFrameCube();
+    cube1.position.z = (t * 0.01)-300
+  }
 
 }
 let t = 0
 function animate() {
   controls.update(0.01)
 
-  t++
-  if (t > 100) {
+  // t++
+  if (t > 500) {
     t = 0;
     console.log(
         camera.position.x,
