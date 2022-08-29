@@ -4,12 +4,11 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <link rel="stylesheet" href="style.css" >
-    <!-- <link rel="stylesheet" media="(max-width:900px)" href="styleMid.css" > -->
     <link rel="stylesheet" media="(max-width:450px)" href="styleSmall.css" >
-    <link rel="stylesheet" media="(min-width:451px)" href="styleLarge.css" > 
- 
+    <link rel="stylesheet" media="(min-width:451px)" href="styleLarge.css" >
+
     <title>BSP</title>
   </head>
   <body>
@@ -19,27 +18,27 @@
     <main>
       <div id="navbar">
           <h4 style="font-size:40px; margin:15px;">BSP</h4>
-      </div>   
-    
+      </div>
 
-      <header class="fullBlock" style="background-color: rgba(15, 15, 15, 0.9);;">
+
+      <header class="fullBlock" style="background-color: rgba(15, 15, 15, 0.85);margin-bottom: 1000px;">
         <h4 style="margin-bottom: 30px; font-size: 45px;">
           Belmont School of Programming
         </h4>
 
         <div style="float:left; display: flex;flex-flow: column;justify-content: center; z-index: 10;" id="d1">
-          <h5 id="t1_1">
-          Learn to program in Python! Fast!
-          </h5>   
+          <h5 id="t1">
+          Learn to program in Python!
+          </h5>
 
           <h6 id="t2">
-          Availible to everyone, ages 8 and up
+          Suited for ages 8 and up!
           </h6>
 
           <div style="display:flex; justify-content:center">
-            <button style="margin-bottom:25px;">Learn More</button>
+            <button style="margin-bottom:25px;" onClick="document.getElementById('courses').scrollIntoView();">Learn More</button>
           </div>
-        </div>  
+        </div>
 
           <div style="float:right; width:50%;padding:0px; display: flex; justify-content: center; z-index:10">
             <img src="assets/desk1.svg" id="deskImg" style="top:-30px; position:relative">
@@ -48,31 +47,22 @@
 
       <div style="margin-bottom: 100px; padding-top:30px" class="fullBlock" id="courses">
         <h4 style="font-size: 45px;">Courses</h4>
-        <h6 id="t3_1">
-          All courses will consist of 10 classes that will both be held over google meet's and will be held on 
-          <u>Saturdays 10:00 AM</u> and <u>Tuesdays 4:30 PM</u> starting on september 17.
-          In order to sign-up please fill out this google form.
-        </h6>
-        <h6 id="t3_2">
-          This year  Belmont School of Programming is offering a python course covering everything you may need to know, inorder to begin programming.
-          Both courses will consist of 10 classes that will both be held over google meet's. 
-          classes will be held on <u>Saturdays at 10 AM</u> and <u>Tuesdays at 4:30 PM</u> starting on september 17.
-          In order to sign-up please fill out this google form.
+        <h6 id="t3">
+          This introductory python course covers everything you need to begin programming.
+          The courses will consist of 10, 1 hour classes that will be held over group Google Meet's.
+          classes will be held on <u>Saturdays at 10 AM</u> and <u>Tuesdays at 4:30 PM</u> starting on september 24th.
+          In order to sign-up please fill out this Google Form.
         </h6>
         <div style="display:flex; justify-content:center; margin-top:25px;">
-          <button>Sign-up</button>
+          <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSf4MyqHRNm2eDlSZ0SGqRX5m1F5BHL3AYFngNSB2uuNUuPHTw/viewform?usp=sf_link', '_blank')">Sign-up</button>
         </div>
       </div>
 
       <div style="left: 100px; margin-bottom: 1400px;" class="fullBlock" id="py101">
         <h4 style="font-size: 45px;">Python 101</h4>
-        <h6 id="t4_1"> 
+        <h6 id="t4">
           Takes 10 days to complete and will all teach you all the fundamentals required to begin programming.
           Here are the topics covered.
-        </h6>
-        <h6 id="t4_2"> 
-          Takes 10 days to complete and will all teach you all the fundamentals required to begin programming.
-          Python 101 is perfect for <br> Middle - Highschool, but all ages are welcome.
         </h6>
         <ul>
           <li>Variables</li>
@@ -85,39 +75,13 @@
           <li>OOP</li>
           <li>Game Dev</li>
         </ul>
-        <div style="display:flex; justify-content:center"><button id="formButton" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSf4MyqHRNm2eDlSZ0SGqRX5m1F5BHL3AYFngNSB2uuNUuPHTw/viewform?usp=sf_link', '_blank')">$59.99</button></div>
-        <!-- <div style="display:flex; justify-content:center"><button id="formButton" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSf4MyqHRNm2eDlSZ0SGqRX5m1F5BHL3AYFngNSB2uuNUuPHTw/viewform?usp=sf_link', '_blank')">$59.99</button></div> -->
-        <!-- <div style="margin-left:40%">\/ About \/</div> -->
+        <h6 style="color:grey; margin-bottom: 15px">
+          Requirements: computer, understanding of basic Arithmetic.
+        </h6>
+        <div id="centeringDiv"><button id="formButton" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSf4MyqHRNm2eDlSZ0SGqRX5m1F5BHL3AYFngNSB2uuNUuPHTw/viewform?usp=sf_link', '_blank')">$59.99</button></div>
       </div>
 
-      <!-- <div style="left: 100px; height:500px;" class="fullBlock" >
-        <h4>Python 102</h4>
-        <h5>Topics our course will cover in 10 classes</h5>
-        <h6>Python 102 is the subsequent class to Python 101. Python 102 will focus on more conceptual programming on topics such as algorithms and datastructures that will be built from scratch. </h6>
-        <div style="display: flex; justify-content: space-between; width:600px">
-        <ul>
-          <li>Lists and Arrays</li>
-          <li>Hash Table</li>
-          <li>Trees</li>
-          <li>Queue</li>
-          <li>Stacks</li>
-          <li>Heaps</li>
-        </ul>
-        <ul>
-          <li>Graphs</li>
-          <li>Sorting Algorithms</li>
-          <li>Traversals</li>
-          <li>Hashing</li>
-          <li>Dijkstra's Algorithm</li>
-          <li>Big-O runtime</li>
-        </ul>
-      </div>
 
-        <h6 style="color:grey">59.99$ for 10 hours</h6>
-        <button id="formButton" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSf4MyqHRNm2eDlSZ0SGqRX5m1F5BHL3AYFngNSB2uuNUuPHTw/viewform?usp=sf_link', '_blank')">Sign-up</button> -->
-      <!-- </div> -->
-
-      
       <div style="left: 100px;" class="fullBlock" id="aboutDimaBlock">
         <h4 style="margin-bottom: 40px; font-size: 45px;"><u>BSP Teachers</u></h4>
         <h5>Dmitriy (Dima) Ivkov</h5>
@@ -126,19 +90,21 @@
           <img src="assets/dmitriyI.png" id="dimaImg" />
         </div>
         <h5 style="font-size: 25px; margin-bottom: 15px;">
-          Hi, Im Dima. Im an incoming sophmore at Belmont High School who is passionate about programming and data science. 
+          Hi, Im Dima. Im an incoming sophmore at Belmont High School who is passionate about programming and data science.
           Im looking forward to teaching you Python!
         </h5>
- 
-        <div style="width:100%; display: flex; justify-content: space-around; margin-top:50px">
-          <button style="width: 45%; height:40px; margin-top:0px" onclick="window.open('https://www.linkedin.com/in/dmitriy-i-55b29b222/', '_blank')">LinkedIn</button>
-          <button style="width: 45%; height:40px; margin-top:0px" onclick="window.open('https://github.com/DIvkov575', '_blank')">Github</button>
+
+        <div style="width:100%; display: flex; justify-content: space-evenly; flex-flow: wrap; margin-top:50px">
+          <button style="width: 250px; height:40px; margin-top:15px" class="b2" onclick="window.open('https://www.linkedin.com/in/dmitriy-i-55b29b222/', '_blank')">LinkedIn</button>
+          <button style="width: 250px; height:40px; margin-top:15px" class="b2" onclick="window.open('https://github.com/DIvkov575', '_blank')">Github</button>
+          <button style="width: 250px; height:40px; margin-top:15px" class="b2" onclick="navigator.clipboard.writeText('dmitriy@ivkov.net')">Email</button>
+
         </div>
 
         <h4 style="margin-top:50px; margin-bottom:25px"> <center>
           Projects and experience
         </center></h4>
-        
+
         <div style="padding-bottom: 50px;">
           <div style="margin-bottom:25px">
             <h5><u>Internship at Tamr</u></h5>
@@ -153,9 +119,9 @@
             <h6>I built the BSP website in JS and TS with the help of THREE.js front-end framework. Throughout the process I improved my TS/JS development skilss was able to work with full-stack code.</h6>
           </div>
         </div>
-     
 
-      </div>  
+
+      </div>
 
     </main>
     <script type="module" src="/main.js"></script>

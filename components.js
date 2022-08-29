@@ -17,10 +17,3 @@ export function randRotation(item, a){
   }
 }
 
-function CopyEmail() {
-  let Url = document.getElementById("url");
-  Url.innerHTML = window.location.href;
-  console.log(Url.innerHTML)
-  Url.select();
-  document.execCommand("copy");
-}

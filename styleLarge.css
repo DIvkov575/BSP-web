@@ -1,6 +1,6 @@
 header{
-    margin-top: 90px; 
-    margin-bottom: 700px; 
+    margin-top: 90px;
+    margin-bottom: 700px;
     height:800px;
     background: var(--dark-bg);
     grid-column: 2 / span 5;
@@ -26,39 +26,22 @@ header h5,h4 {
     padding-bottom: 50px;
 }
 
-#t1_1 {
-    display: none;
-}
-#t1_2 {
-    width: 100%;
-    text-align: center;
-}
 #t2 {
     text-align: center;
     color:rgb(163, 163, 163);
     font-size:20px;
     margin-bottom: 35px;
 }
-#t3_1{
-    display: none;
- 
-}
-#t3_2{
+#t3{
     margin-top: 25px;
     margin-bottom: 25px;
     color:rgb(200, 200, 200);
 }
 
-#t4_1 {
-display: none;
-}
+
 #d1 {
     width:50%;
 }
-#t1_1 {
-    display: block;
-}
-
 #aboutDimaBlock {
     display: flex;
     flex-flow: column;
@@ -72,4 +55,8 @@ display: none;
 #dimaImg {
     margin-top: 25px;
     width:50%;
+}
+
+.b2:hover {
+    box-shadow: inset 300px 0 0 0 #00263e;
 }
