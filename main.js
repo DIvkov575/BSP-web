@@ -6,6 +6,7 @@ import {FlyControls} from "three/examples/jsm/controls/FlyControls";
 import {MeshBasicMaterial} from "three";
 
 //setup
+let t = 0
 let cubeList = [];
 let cubeList2 = [];
 const scene = new THREE.Scene();
@@ -18,13 +19,13 @@ camera.position.setX(-3);
 renderer.render(scene, camera);
 
 //flying camera
-let controls = new FlyControls( camera, renderer.domElement );
-controls.movementSpeed = 100;
-controls.rollSpeed = Math.PI / 24;
-controls.autoForward = false;
-controls.dragToLook = true;
-const axesHelper = new THREE.AxesHelper( 1000  );
-scene.add( axesHelper );
+// let controls = new FlyControls( camera, renderer.domElement );
+// controls.movementSpeed = 100;
+// controls.rollSpeed = Math.PI / 24;
+// controls.autoForward = false;
+// controls.dragToLook = true;
+// const axesHelper = new THREE.AxesHelper( 1000  );
+// scene.add( axesHelper );
 
 //lights
 const pointLight = new THREE.PointLight(0xffffff, 1);
@@ -39,7 +40,7 @@ function addWireFrameCube() {
   const wireframe = new THREE.LineSegments( cubeGeo, mat );
   const [x, y, z] = Array(3)
     .fill()
-    .map(() => THREE.MathUtils.randFloatSpread(150));
+    .map(() => THREE.MathUtils.randFloatSpread(250));
   wireframe.position.set(x, y, z-50);
   wireframe.rotation.x = randRange(0,360);
   wireframe.rotation.y = randRange(0,360);
@@ -54,7 +55,7 @@ function addBigWireFrameCube() {
   const wireframe = new THREE.LineSegments( cubeBigGeo, mat );
   const [x, y, z] = Array(3)
     .fill()
-    .map(() => THREE.MathUtils.randFloatSpread(150));
+    .map(() => THREE.MathUtils.randFloatSpread(250));
   wireframe.position.set(x, y, z-50);
   wireframe.rotation.x = randRange(0,360);
   wireframe.rotation.y = randRange(0,360);
@@ -64,10 +65,10 @@ function addBigWireFrameCube() {
 }
 for (let index = 0; index < 20; index++) {
   addWireFrameCube()
-  cubeList2.push(addWireFrameCube())
+  cubeList.push(addWireFrameCube())
   cubeList.push(addWireFrameCube())
 }
-for (let index = 0; index < 2; index++) {
+for (let index = 0; index < 1; index++) {
   addBigWireFrameCube()
   cubeList.push(addWireFrameCube())
 }
@@ -85,80 +86,38 @@ scene.add(grid);
 scene.add(gridEdge);
 
 //plane
-let planeShape = new THREE.PlaneGeometry(75,200,20,25)
-const planeMaterial = new THREE.MeshPhongMaterial({ color: 0x451c09 , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
+let planeShape = new THREE.PlaneGeometry(150,250,20,25)
+const planeMaterial = new THREE.MeshPhongMaterial({ color: 0x66554d , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
 let plane = new THREE.Mesh( planeShape, planeMaterial );
-let planeEdge = new THREE.EdgesHelper(plane, 0xaaaaff);
-planeEdge.material.linewidth = 3;
-
-planeEdge.rotation.y = Math.PI/2;
-planeEdge.position.z -= 150
-planeEdge.position.x -= 10
-
-plane.rotation.y = Math.PI/2;
-plane.position.z -= 150
-plane.position.x -= 10
-
-plane.material.linewidth = 15;
-
 const {array} = plane.geometry.attributes.position;
-const {array2} = planeEdge.geometry.attributes.position;
-
 for (let i = 0; i < array.length; i+=9) {
   const x1 = array[i];
   const y1 = array[i+1];
   const z1 = array[i+2];
 
-  if (x1 == -50)  {
-   array[i+2] = z1;
-   // array2[i+2] = z1;
-  }
+  if (x1 == -50)  {array[i+2] = z1;}
   if ((y1 > -25 && y1 <25) || (x1 <= -25)) {
-    let randVal = z1 + 10 * Math.random();
-    array[i + 2] = randVal;
-    // array2[i + 2] = randVal;
-
-  }
-  else {
-    let randVal = z1 + 30 * Math.random()
-      array[i + 2] = randVal;
-      // array2[i + 2] = randVal;
-  }
+    array[i + 2] = z1 + 15 * Math.random();
+  } else {array[i + 2] = z1 + 30 * Math.random();}
 }
-
-// scene.add(plane);
 scene.add(plane);
 
-
+plane.rotation.y = Math.PI/2;
+plane.position.z -= 150
+plane.position.x -= 10
 camera.rotation.z = -Math.PI/2
-// camera.position.x += 15;
 camera.rotation.y -= 0.1;
 
-// Animation !!
 function moveCamera() {
   const t = -document.body.getBoundingClientRect().top;
-  // console.log(t)
   gridEdge.rotation.y -= 0.5
-  // console.log(t)
-  console.log(
-//   camera.position.x,
-  camera.position.y,
-//   camera.position.z,
-//   camera.rotation.x,
-//   camera.rotation.y,
-//   camera.rotation.z
-)
-  if (t < 300) {
+  camera.position.z = (-t * 0.03) + 100;
 
-  } else if (t > 700 && t < 1000) {
-    let cube1 = addWireFrameCube();
-    cube1.position.z = (t * 0.01)-300
-  }
+
 
 }
-let t = 0
 function animate() {
-  controls.update(0.05)
+  // controls.update(0.05)
 
   // t++
   if (t > 500) {
