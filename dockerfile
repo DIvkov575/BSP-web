@@ -1,4 +1,4 @@
-FROM node:lts-alpine as buildidoi-stage
+FROM node:lts-alpine as build-stage
 
 WORKDIR .
 COPY package*.json ./
