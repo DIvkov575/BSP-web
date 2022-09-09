@@ -4,9 +4,10 @@ import { randRange, randRotation } from './components';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 import {FlyControls} from "three/examples/jsm/controls/FlyControls";
 import {Loader, MeshBasicMaterial} from "three";
-import { EffectComposer } from "/node_modules/three/examples/jsm/postprocessing/EffectComposer.js";
-import { RenderPass } from "/node_modules/three/examples/jsm/postprocessing/RenderPass.js";
-import { UnrealBloomPass } from "/node_modules/three/examples/jsm/postprocessing/UnrealBloomPass.js";
+// import { EffectComposer } from "/node_modules/three/examples/jsm/postprocessing/EffectComposer.js";
+// import { RenderPass } from "/node_modules/three/examples/jsm/postprocessing/RenderPass.js";
+// import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
+// import { bloomPass } from "three/examples/jsm/postprocessing/bloomPass.js";
 
 //setup
 let t = 0
@@ -18,20 +19,18 @@ const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerH
 const renderer = new THREE.WebGLRenderer({canvas: document.querySelector('#bg'),});
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.autoClear = false;
-renderer.setClearColor(0x000000, 0.0);
 camera.position.setZ(30);
 camera.position.setX(-3);
 renderer.render(scene, camera);
 
-//flying camera
-let controls = new FlyControls( camera, renderer.domElement );
-controls.movementSpeed = 100;
-controls.rollSpeed = Math.PI / 24;
-controls.autoForward = false;
-controls.dragToLook = true;
-const axesHelper = new THREE.AxesHelper( 1000  );
-scene.add( axesHelper );
+// //flying camera
+// let controls = new FlyControls( camera, renderer.domElement );
+// controls.movementSpeed = 100;
+// controls.rollSpeed = Math.PI / 24;
+// controls.autoForward = false;
+// controls.dragToLook = true;
+// const axesHelper = new THREE.AxesHelper( 1000  );
+// scene.add( axesHelper );
 
 //lights
 const pointLight = new THREE.PointLight(0xffffff, 1);
@@ -51,7 +50,6 @@ function addWireFrameCube() {
   wireframe.rotation.x = randRange(0,360);
   wireframe.rotation.y = randRange(0,360);
   wireframe.rotation.z = randRange(0,360);
-  wireframe.layers.set(1)
   scene.add(wireframe);
   return wireframe;
 }
@@ -67,7 +65,6 @@ function addBigWireFrameCube() {
   wireframe.rotation.x = randRange(0,360);
   wireframe.rotation.y = randRange(0,360);
   wireframe.rotation.z = randRange(0,360);
-  wireframe.layers.set(1)
   scene.add(wireframe);
   return wireframe;
 }
@@ -89,8 +86,6 @@ let gridEdge = new THREE.EdgesHelper(grid, 0xaaaaff);
 grid.position.x -= 505.1
 gridEdge.position.x -= 505;
 gridEdge.material.linewidth = 3;
-gridEdge.layers.set(1)
-grid.layers.set(1)
 scene.add(grid);
 scene.add(gridEdge);
 
@@ -109,7 +104,6 @@ for (let i = 0; i < array.length; i+=9) {
     array[i + 2] = z1 + 15 * Math.random();
   } else {array[i + 2] = z1 + 30 * Math.random();}
 }
-plane.layers.set(1)
 scene.add(plane);
 
 // container
@@ -145,7 +139,6 @@ function addContainer() {
       if ( child instanceof THREE.Mesh ) {
         child.material = material;
       }})
-    object.layers.set(1)
     scene.add(object)
     object.x = x;
     object.y = y;
@@ -159,31 +152,25 @@ for (let i = 0 ; i < 5; i++){
   addContainer()
 }
 
-//bloom renderer
-const renderScene = new RenderPass(scene, camera);
-const bloomPass = new UnrealBloomPass(
-  new THREE.Vector2(window.innerWidth, window.innerHeight),
-  1.5,
-  0.4,
-  0.85
-);
-bloomPass.threshold = 0;
-bloomPass.strength = 2; //intensity of glow
-bloomPass.radius = 0;
-const bloomComposer = new EffectComposer(renderer);
-bloomComposer.setSize(window.innerWidth, window.innerHeight);
-bloomComposer.renderToScreen = true;
-bloomComposer.addPass(renderScene);
-bloomComposer.addPass(bloomPass);
+// // Sphere
+// const composer = new EffectComposer(renderer);
+// composer.addPass(new RenderPass(scene, camera));
+// const bPass = new UnrealBloomPass(
+//   1,24,4,256
+// );
+// bPass.renderToScreen = true;
+// composer.addPass(bPass);
 
-//sun object
-const color = new THREE.Color("#FDB813");
-const geometry = new THREE.IcosahedronGeometry(1, 15);
-const material = new THREE.MeshBasicMaterial({ color: color });
-const sphere = new THREE.Mesh(geometry, material);
-sphere.position.set(0, 0, 0);
-sphere.layers.set(1);
-scene.add(sphere);
+// let sphereShape = new THREE.SphereGeometry(9, 20,20)
+// const sphereMaterial = new THREE.MeshPhongMaterial({ color: 0x66554d , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
+// let sphere = new THREE.Mesh( sphereShape, sphereMaterial );
+// let torusShape = new THREE.TorusGeometry(13,2, 15,75)
+// const torusMaterial = new THREE.MeshPhongMaterial({ color: 0x66554d , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
+// let torus = new THREE.Mesh( torusShape, torusMaterial );
+// scene.add(sphere)
+// scene.add(torus)
+
+
 
 
 plane.rotation.y = Math.PI/2;
@@ -202,36 +189,29 @@ function moveContainer(container, t){
 
 function moveCamera() {
   const t = -document.body.getBoundingClientRect().top;
+  camera.position.z = (-t * 0.03) + 100;
+
   if (t < 2500) {
   gridEdge.rotation.y -= 0.5
-  camera.position.z = (-t * 0.03) + 100;
   containerList.forEach((container)=>{moveContainer(container, t)})
   }
-  if (t > 2500 && t < 4800) {
+  if (t > 2500) {
     gridEdge.rotation.y -= 0.5
-    camera.position.z = (-t * 0.03) + 100;
     containerList.forEach((container)=>{moveContainer(container, t)})
     camera.rotation.y = -(t-2500)*0.00015;
-    camera.position.x = (t-2500)*0.0001;
+    camera.position.x = (t-2500)*0.00015;
   }
 }
 
 function animate() {
-  controls.update(0.05)
+  // controls.update(0.05)
 
-
-
-  // torus.rotation.x += 0.005;
-  // torus.rotation.y += 0.01;
-  // torus.rotation.z += 0.005;
   cubeList.forEach((cube)=>cube.rotation.x += 0.008)
   requestAnimationFrame(animate);
-  camera.layers.set(1);
-  bloomComposer.render();
+  renderer.render(scene, camera);
 }
 document.body.onscroll = moveCamera;
 moveCamera();
 animate();
 
 // Miscellaneous
-

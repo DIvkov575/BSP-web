@@ -21,6 +21,9 @@ header h5,h4 {
     /* font-size: 25px; */
     text-align: center;
 }
+#ChooseUs {
+    margin-bottom: 800px;
+}
 .fullBlock {
     display: flex;
     flex-flow: column;
@@ -63,5 +66,6 @@ header h5,h4 {
     box-shadow: inset 300px 0 0 0 #00263e;
 }
 
-#ChooseUs {
+#py101 {
+    margin-bottom: 800px;
 }

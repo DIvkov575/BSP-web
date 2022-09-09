@@ -4,7 +4,7 @@
 
 header{
     margin-top: 90px;
-    margin-bottom: 700px;
+    margin-bottom: 300px;
     height:350px;
     grid-column: 2 / span 5;
     font-size: 2.5rem;
@@ -17,17 +17,21 @@ header h5,h4 {
     font-size: 25px;
     text-align: center;
 }
+#ChooseUs {
+    margin-bottom: 400px;
+}
 #courses {
-    height: 525px;
+    height: 575px;
     display: flex;
     justify-content: center;
     flex-flow:column;
 }
 #py101 {
-    height:850px;
+    height:1000px;
     display: flex;
     justify-content: center;
     flex-flow:column;
+    margin-bottom: 400px;
 }
 #t1 {
     font-size:30px;
