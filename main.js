@@ -156,10 +156,21 @@ for (let i = 0 ; i < 5; i++){
 const composer = new EffectComposer(renderer);
 composer.addPass(new RenderPass(scene, camera));
 const bPass = new UnrealBloomPass(
-  1,24,4,256
+  new THREE.Vector2(window.innerWidth, window.innerHeight),
+  100,
+  50,
+  1
 );
 bPass.renderToScreen = true;
 composer.addPass(bPass);
+// const renderScene = new RenderPass(scene, camera);
+// const bloomPass = new UnrealBloomPass(
+//   new THREE.Vector2(window.innerWidth, window.innerHeight),
+//   1.5,
+//   0.4,
+//   0.85
+// );
+
 
 let sphereShape = new THREE.SphereGeometry(9, 20,20)
 const sphereMaterial = new THREE.MeshPhongMaterial({ color: 0x66554d , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
