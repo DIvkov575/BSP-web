@@ -6,8 +6,7 @@ import {FlyControls} from "three/examples/jsm/controls/FlyControls";
 import {Loader, MeshBasicMaterial} from "three";
 import { EffectComposer } from "/node_modules/three/examples/jsm/postprocessing/EffectComposer.js";
 import { RenderPass } from "/node_modules/three/examples/jsm/postprocessing/RenderPass.js";
-import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
-// import { bloomPass } from "three/examples/jsm/postprocessing/bloomPass.js";
+import { UnrealBloomPass } from "/node_modules/three/examples/jsm/postprocessing/UnrealBloomPass.js";
 
 //setup
 let t = 0
@@ -19,6 +18,8 @@ const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerH
 const renderer = new THREE.WebGLRenderer({canvas: document.querySelector('#bg'),});
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.autoClear = false;
+renderer.setClearColor(0x000000, 0.0);
 camera.position.setZ(30);
 camera.position.setX(-3);
 renderer.render(scene, camera);
@@ -50,6 +51,7 @@ function addWireFrameCube() {
   wireframe.rotation.x = randRange(0,360);
   wireframe.rotation.y = randRange(0,360);
   wireframe.rotation.z = randRange(0,360);
+  wireframe.layers.set(1)
   scene.add(wireframe);
   return wireframe;
 }
@@ -65,6 +67,7 @@ function addBigWireFrameCube() {
   wireframe.rotation.x = randRange(0,360);
   wireframe.rotation.y = randRange(0,360);
   wireframe.rotation.z = randRange(0,360);
+  wireframe.layers.set(1)
   scene.add(wireframe);
   return wireframe;
 }
@@ -86,6 +89,8 @@ let gridEdge = new THREE.EdgesHelper(grid, 0xaaaaff);
 grid.position.x -= 505.1
 gridEdge.position.x -= 505;
 gridEdge.material.linewidth = 3;
+gridEdge.layers.set(1)
+grid.layers.set(1)
 scene.add(grid);
 scene.add(gridEdge);
 
@@ -104,6 +109,7 @@ for (let i = 0; i < array.length; i+=9) {
     array[i + 2] = z1 + 15 * Math.random();
   } else {array[i + 2] = z1 + 30 * Math.random();}
 }
+plane.layers.set(1)
 scene.add(plane);
 
 // container
@@ -139,6 +145,7 @@ function addContainer() {
       if ( child instanceof THREE.Mesh ) {
         child.material = material;
       }})
+    object.layers.set(1)
     scene.add(object)
     object.x = x;
     object.y = y;
@@ -152,36 +159,31 @@ for (let i = 0 ; i < 5; i++){
   addContainer()
 }
 
-// Sphere
-const composer = new EffectComposer(renderer);
-composer.addPass(new RenderPass(scene, camera));
-const bPass = new UnrealBloomPass(
+//bloom renderer
+const renderScene = new RenderPass(scene, camera);
+const bloomPass = new UnrealBloomPass(
   new THREE.Vector2(window.innerWidth, window.innerHeight),
-  100,
-  50,
-  1
+  1.5,
+  0.4,
+  0.85
 );
-bPass.renderToScreen = true;
-composer.addPass(bPass);
-// const renderScene = new RenderPass(scene, camera);
-// const bloomPass = new UnrealBloomPass(
-//   new THREE.Vector2(window.innerWidth, window.innerHeight),
-//   1.5,
-//   0.4,
-//   0.85
-// );
+bloomPass.threshold = 0;
+bloomPass.strength = 2; //intensity of glow
+bloomPass.radius = 0;
+const bloomComposer = new EffectComposer(renderer);
+bloomComposer.setSize(window.innerWidth, window.innerHeight);
+bloomComposer.renderToScreen = true;
+bloomComposer.addPass(renderScene);
+bloomComposer.addPass(bloomPass);
 
-
-let sphereShape = new THREE.SphereGeometry(9, 20,20)
-const sphereMaterial = new THREE.MeshPhongMaterial({ color: 0x66554d , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
-let sphere = new THREE.Mesh( sphereShape, sphereMaterial );
-let torusShape = new THREE.TorusGeometry(13,2, 15,75)
-const torusMaterial = new THREE.MeshPhongMaterial({ color: 0x66554d , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
-let torus = new THREE.Mesh( torusShape, torusMaterial );
-scene.add(sphere)
-scene.add(torus)
-
-
+//sun object
+const color = new THREE.Color("#FDB813");
+const geometry = new THREE.IcosahedronGeometry(1, 15);
+const material = new THREE.MeshBasicMaterial({ color: color });
+const sphere = new THREE.Mesh(geometry, material);
+sphere.position.set(0, 0, 0);
+sphere.layers.set(1);
+scene.add(sphere);
 
 
 plane.rotation.y = Math.PI/2;
@@ -219,13 +221,13 @@ function animate() {
 
 
 
-  torus.rotation.x += 0.005;
-  torus.rotation.y += 0.01;
-  torus.rotation.z += 0.005;
+  // torus.rotation.x += 0.005;
+  // torus.rotation.y += 0.01;
+  // torus.rotation.z += 0.005;
   cubeList.forEach((cube)=>cube.rotation.x += 0.008)
   requestAnimationFrame(animate);
-  // renderer.render(scene, camera);
-  composer.render(scene, camera);
+  camera.layers.set(1);
+  bloomComposer.render();
 }
 document.body.onscroll = moveCamera;
 moveCamera();
