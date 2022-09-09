@@ -4,11 +4,16 @@ import { randRange, randRotation } from './components';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 import {FlyControls} from "three/examples/jsm/controls/FlyControls";
 import {Loader, MeshBasicMaterial} from "three";
+import { EffectComposer } from "/node_modules/three/examples/jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "/node_modules/three/examples/jsm/postprocessing/RenderPass.js";
+import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
+// import { bloomPass } from "three/examples/jsm/postprocessing/bloomPass.js";
 
 //setup
 let t = 0
 let cubeList = [];
 let cubeList2 = [];
+let containerList = [];
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({canvas: document.querySelector('#bg'),});
@@ -63,7 +68,7 @@ function addBigWireFrameCube() {
   scene.add(wireframe);
   return wireframe;
 }
-for (let index = 0; index < 20; index++) {
+for (let index = 0; index < 15; index++) {
   addWireFrameCube()
   cubeList.push(addWireFrameCube())
   cubeList.push(addWireFrameCube())
@@ -85,7 +90,7 @@ scene.add(grid);
 scene.add(gridEdge);
 
 //plane
-let planeShape = new THREE.PlaneGeometry(150,250,20,25)
+let planeShape = new THREE.PlaneGeometry(150,350,20,25)
 const planeMaterial = new THREE.MeshPhongMaterial({ color: 0x66554d , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
 let plane = new THREE.Mesh( planeShape, planeMaterial );
 const {array} = plane.geometry.attributes.position;
@@ -101,72 +106,69 @@ for (let i = 0; i < array.length; i+=9) {
 }
 scene.add(plane);
 
+// container
 function addContainer() {
-  // const [x, y, z] = Array(3)
-  //     .fill()
-  //     .map(() => THREE.MathUtils.randFloatSpread(250));
-  const [x,y,z] = [0,0,0];
-
-
+  function getDir() {
+    if (Math.random() >= 0.5) {
+      return 1;
+    } else {
+      return -1;
+    }
+  }
+  const x = Math.round(Math.random()*40);
+  const z = Math.round(Math.random()*300);
+  const y = Math.round(Math.random()*400);
+  const speed = Math.random()*0.03;
+  const direction = getDir();
   let objLoader = new OBJLoader();
-  const material= new THREE.MeshPhongMaterial({ color: 0xFF9999 , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
-
-
+  const material1 = new THREE.MeshPhongMaterial({ color: 0x6b2020 , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
+  const material2 = new THREE.MeshPhongMaterial({ color: 0x0a1d40 , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
+  const materialPicks = [material1, material2]
+  const material = materialPicks[Math.round(Math.random())]
   objLoader.setPath('assets/')
   objLoader.load('cargo.obj', function (object) {
     object.scale.setScalar(0.1)
     object.rotation.y = Math.PI/4.15
     object.rotation.x = Math.PI/2
-    object.position.z = -100;
-    object.position.x = 10; 
+
+    object.position.z = -z;
+    object.position.x = 10 + x; 
+    object.position.y = y;
 
     object.traverse( function ( child ) {
       if ( child instanceof THREE.Mesh ) {
         child.material = material;
-
       }})
     scene.add(object)
+    object.x = x;
+    object.y = y;
+    object.z = z;
+    object.speed = speed;
+    object.direction = direction;
+    containerList.unshift(object)
   })
-
-
 }
-addContainer()
-// async function wrapper() {
-//   let loader = new OBJLoader();
+for (let i = 0 ; i < 5; i++){
+  addContainer()
+}
 
-//   await loader.load(
-//     'assets/cargo.obj',
-//     function (object) {
-//       const objectMaterial = new THREE.MeshPhongMaterial({ color: 0xFF9999 , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
+// Sphere
+const composer = new EffectComposer(renderer);
+composer.addPass(new RenderPass(scene, camera));
+const bPass = new UnrealBloomPass(
+  1,24,4,256
+);
+bPass.renderToScreen = true;
+composer.addPass(bPass);
 
-//       object.traverse(function(child) {
-//         if (child instanceof THREE.Mesh) {
-//             child.material = objectMaterial;
-//         }
-//       });
-//     object.scale.set(0.1,0.1,0.1);
-//     object.rotation.y = Math.PI/4.15
-//     object.rotation.x = Math.PI/2
-//     object.position.z = -100;
-//     object.position.x = 10; 
-//     object.name = "object1";   
-//     scene.add(object)
-//   }
-// )
-
-// }
-
-// wrapper().then(console.log(scene))
-
-// wrapper().then(()=>{
-//   let object = scene.getObjectByName("object1");
-//   object.position.x += 10;
-//   console.log(object)
-
-// })
-
-
-
+let sphereShape = new THREE.SphereGeometry(9, 20,20)
+const sphereMaterial = new THREE.MeshPhongMaterial({ color: 0x66554d , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
+let sphere = new THREE.Mesh( sphereShape, sphereMaterial );
+let torusShape = new THREE.TorusGeometry(13,2, 15,75)
+const torusMaterial = new THREE.MeshPhongMaterial({ color: 0x66554d , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
+let torus = new THREE.Mesh( torusShape, torusMaterial );
+scene.add(sphere)
+scene.add(torus)
 
 
 
@@ -177,31 +179,42 @@ plane.position.x -= 10
 camera.rotation.z = -Math.PI/2
 camera.rotation.y -= 0.1;
 
-
-
-
-
-
+function moveContainer(container, t){
+  const y = container.y;
+  const speed = container.speed;
+  const d = container.direction;
+  
+  container.position.y  = d*(50+y)-d*(t-200)*(0.06+speed)
+}
 
 function moveCamera() {
   const t = -document.body.getBoundingClientRect().top;
+  if (t < 2500) {
   gridEdge.rotation.y -= 0.5
   camera.position.z = (-t * 0.03) + 100;
-  // object.position.y  = 50-(t-500)*0.05
-  // console.log(t);
-  // let object = scene.getObjectByName("object1");
-  // object.position.x += 0.1
-
+  containerList.forEach((container)=>{moveContainer(container, t)})
+  }
+  if (t > 2500 && t < 4800) {
+    gridEdge.rotation.y -= 0.5
+    camera.position.z = (-t * 0.03) + 100;
+    containerList.forEach((container)=>{moveContainer(container, t)})
+    camera.rotation.y = -(t-2500)*0.00015;
+    camera.position.x = (t-2500)*0.0001;
+  }
 }
+
 function animate() {
   controls.update(0.05)
 
 
 
-
+  torus.rotation.x += 0.005;
+  torus.rotation.y += 0.01;
+  torus.rotation.z += 0.005;
   cubeList.forEach((cube)=>cube.rotation.x += 0.008)
   requestAnimationFrame(animate);
-  renderer.render(scene, camera);
+  // renderer.render(scene, camera);
+  composer.render(scene, camera);
 }
 document.body.onscroll = moveCamera;
 moveCamera();
