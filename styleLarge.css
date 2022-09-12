@@ -35,7 +35,8 @@ header h5,h4 {
     font-size:20px;
     margin-bottom: 35px;
 }
-#t3{
+
+.t3{
     margin-top: 25px;
     margin-bottom: 25px;
     color:rgb(200, 200, 200);
@@ -49,6 +50,7 @@ header h5,h4 {
     display: flex;
     flex-flow: column;
     justify-content: center;
+    padding:75px;
 }
 
 #aboutDimaBlock h4, h5 {
@@ -57,7 +59,7 @@ header h5,h4 {
 
 #dimaImg {
     margin-top: 25px;
-    width:50%;
+    width:60%;
 }
 
 .b2:hover {

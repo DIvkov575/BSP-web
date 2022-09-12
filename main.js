@@ -43,9 +43,10 @@ function addWireFrameCube() {
   const cubeGeo = new THREE.EdgesGeometry( cubeGeometry ); // or WireframeGeometry( geometry )
   const mat = new THREE.LineBasicMaterial( { color: 0xffffff, linewidth: 2 } );
   const wireframe = new THREE.LineSegments( cubeGeo, mat );
-  const [x, y, z] = Array(3)
+  let [x, y, z] = Array(3)
     .fill()
-    .map(() => THREE.MathUtils.randFloatSpread(250));
+    .map(() => THREE.MathUtils.randFloatSpread(400));
+  x /= 2;
   wireframe.position.set(x, y, z-50);
   wireframe.rotation.x = randRange(0,360);
   wireframe.rotation.y = randRange(0,360);
@@ -189,7 +190,7 @@ function moveContainer(container, t){
 
 function moveCamera() {
   const t = -document.body.getBoundingClientRect().top;
-  camera.position.z = (-t * 0.03) + 100;
+  camera.position.z = (-t * 0.025) + 100;
 
   if (t < 2500) {
   gridEdge.rotation.y -= 0.5
