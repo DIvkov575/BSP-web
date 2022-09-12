@@ -1,17 +1,15 @@
 header{
     margin-top: 90px;
     margin-bottom: 700px;
-    height:800px;
     background: var(--dark-bg);
     grid-column: 2 / span 5;
     font-size: 2.5rem;
-    padding: 2rem;
+    padding: 1rem;
     display: flex;
     flex-flow: column;
     align-items: center;
     justify-content: center;
-    /*margin-left:3%;*/
-    /*margin-right:3%;*/
+
 }
 
 header img {
@@ -22,7 +20,7 @@ header h5,h4 {
     text-align: center;
 }
 #ChooseUs {
-    margin-bottom: 800px;
+    margin-bottom: 400px;
 }
 .fullBlock {
     display: flex;

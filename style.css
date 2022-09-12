@@ -1,7 +1,7 @@
 @import url("https://use.typekit.net/jmk3xov.css");
 
 :root {
-    --dark-bg: rgba(15, 15, 15, 0.98);
+    --dark-bg: rgba(15, 15, 15, 0.95);
     --spacing: 350px;
   
     font-family: brandon-grotesque, sans-serif;
@@ -15,7 +15,8 @@ html {
 #navbar {
     grid-column:1/13; 
     margin-bottom:0px;
-    background-color:rgba(2, 2, 2, 0.80)
+    background: var(--dark-bg);
+
 }
 
 .fullBlock {
@@ -30,6 +31,14 @@ html {
     margin-bottom: var(--spacing);
 }
 
+#preloader {
+    background: #000 url(assets/loading3.gif) no-repeat center center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+
+}
 
 * {
     margin-top: 0px;
@@ -90,6 +99,10 @@ h1, h2, h3, blockquote {
     font-style: normal;
 }
 
+h4 {
+    color: #5ec9cc;
+}
+
 ul {
     margin-top:20px;
     margin-bottom: 20px;
@@ -99,9 +112,7 @@ li {
     font-size:25px;
     margin-bottom: 5px;
 }
-h4 {
-    color: #5ec9cc;
-}
+
 
 button {
     text-decoration: none;

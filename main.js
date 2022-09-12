@@ -68,7 +68,7 @@ function addBigWireFrameCube() {
   scene.add(wireframe);
   return wireframe;
 }
-for (let index = 0; index < 15; index++) {
+for (let index = 0; index < 10; index++) {
   addWireFrameCube()
   cubeList.push(addWireFrameCube())
   cubeList.push(addWireFrameCube())
@@ -148,7 +148,7 @@ function addContainer() {
     containerList.unshift(object)
   })
 }
-for (let i = 0 ; i < 5; i++){
+for (let i = 0 ; i < 3; i++){
   addContainer()
 }
 
