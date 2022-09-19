@@ -126,8 +126,8 @@ function addContainer() {
   const material2 = new THREE.MeshPhongMaterial({ color: 0x0a1d40 , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
   const materialPicks = [material1, material2]
   const material = materialPicks[Math.round(Math.random())]
-  objLoader.setPath('assets/')
-  objLoader.load('cargo.obj', function (object) {
+  // objLoader.setPath('./assets/')
+  objLoader.load('./assets/cargo.obj', function (object) {
     object.scale.setScalar(0.1)
     object.rotation.y = Math.PI/4.15
     object.rotation.x = Math.PI/2
