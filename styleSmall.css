@@ -1,6 +1,6 @@
-#deskImg {
-    display:none;
-}
+/*#deskImg {*/
+/*    display:none;*/
+/*}*/
 
 header{
     margin-top: 90px;
@@ -16,6 +16,7 @@ header{
 header h5,h4 {
     font-size: 25px;
     text-align: center;
+    color: green;
 }
 #ChooseUs {
     margin-bottom: 400px;
