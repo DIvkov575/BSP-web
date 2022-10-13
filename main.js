@@ -22,6 +22,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(30);
 camera.position.setX(-3);
 renderer.render(scene, camera);
+camera.updateProjectionMatrix();
 
 // //flying camera
 // let controls = new FlyControls( camera, renderer.domElement );
@@ -39,7 +40,7 @@ scene.add(pointLight)
 
 //  cubes !!
 function addWireFrameCube() {
-  const cubeGeometry = new THREE.BoxGeometry(5,5,5);
+  const cubeGeometry = new THREE.BoxGeometry(7,7,7);
   const cubeGeo = new THREE.EdgesGeometry( cubeGeometry ); // or WireframeGeometry( geometry )
   const mat = new THREE.LineBasicMaterial( { color: 0xffffff, linewidth: 2 } );
   const wireframe = new THREE.LineSegments( cubeGeo, mat );
@@ -55,7 +56,7 @@ function addWireFrameCube() {
   return wireframe;
 }
 function addBigWireFrameCube() {
-  const cubeBigGeometry = new THREE.BoxGeometry(15,15,15);
+  const cubeBigGeometry = new THREE.BoxGeometry(20,20,20);
   const cubeBigGeo = new THREE.EdgesGeometry( cubeBigGeometry ); // or WireframeGeometry( geometry )
   const mat = new THREE.LineBasicMaterial( { color: 0xffffff, linewidth: 2 } );
   const wireframe = new THREE.LineSegments( cubeBigGeo, mat );
@@ -207,7 +208,7 @@ function moveCamera() {
 function animate() {
   // controls.update(0.05)
 
-  cubeList.forEach((cube)=>cube.rotation.x += 0.008)
+  cubeList.forEach((cube)=>cube.rotation.x += 0.009)
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
 }
