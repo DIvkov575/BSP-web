@@ -81,7 +81,7 @@ for (let index = 0; index < 1; index++) {
 }
 
 // grid
-let gridGeo = new THREE.SphereGeometry( 500, 359,179);
+let gridGeo = new THREE.SphereGeometry( 500, 150,100);
 let gridMat = new THREE.MeshPhongMaterial( { color: 0x000000 } );
 let grid = new THREE.Mesh( gridGeo, gridMat );
 let gridEdge = new THREE.EdgesHelper(grid, 0xaaaaff);
@@ -134,7 +134,7 @@ function addContainer() {
     object.rotation.x = Math.PI/2
 
     object.position.z = -z;
-    object.position.x = 10 + x; 
+    object.position.x = 10 + x;
     object.position.y = y;
 
     object.traverse( function ( child ) {
@@ -185,7 +185,7 @@ function moveContainer(container, t){
   const y = container.y;
   const speed = container.speed;
   const d = container.direction;
-  
+
   container.position.y  = d*(50+y)-d*(t-200)*(0.06+speed)
 }
 

@@ -81,10 +81,10 @@ h4 {
     header h5 {font-size: 20px; text-align:center;}
     #deskImg {display:none;}
     button {width:200px}
-    #ChooseUs {padding-left: 0px; margin-bottom: 500px}
+    #ChooseUs {padding-left: 0px; margin-bottom: 550px}
     #ChooseUs h6 {text-align: center;}
     #courses h6 {text-align: center; font-size: 25px;}
-    #courses {margin-bottom: 500px}
+    #courses {margin-bottom: 550px}
     #aboutDimaBlock img {width: 90%;}
     #aboutDimaBlock {width:100%; margin-left: 0px; margin-right: 0px;}
 
@@ -94,7 +94,7 @@ h4 {
     #deskImg {display:none;}
     header{
         margin-top: 90px;
-        margin-bottom: 400px;
+        margin-bottom: 450px;
         /* height:350px; */
         grid-column: 2 / span 5;
         font-size: 2.5rem;
@@ -108,7 +108,7 @@ h4 {
         display: flex;
         justify-content: center;
         flex-flow:column;
-        margin-bottom: 400px;
+        margin-bottom: 450px;
     }
     #t3{
         font-size: 25px;
@@ -136,7 +136,7 @@ h4 {
 @media (min-width:481px) {
     header{
         margin-top: 90px;
-        margin-bottom: 700px;
+        margin-bottom: 600px;
         background: var(--dark-bg);
         grid-column: 2 / span 5;
         font-size: 2.5rem;

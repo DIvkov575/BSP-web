@@ -19,7 +19,7 @@
     <main>
 
       <header class="fullBlock" style="background-color: rgba(15, 15, 15, 0.9);margin-top:0px">
-        <h4 style="margin-bottom: 30px;">
+        <h4 style="margin-bottom: 10px;">
           Belmont School of Programming
         </h4>
 
@@ -31,7 +31,8 @@
           </h5>
 
           <div style="display:flex; justify-content:center">
-            <button style="margin-bottom:25px;" onClick="document.getElementById('ChooseUs').scrollIntoView();">Learn More</button>
+<!--            <button style="margin-bottom:25px;" onClick="document.getElementById('ChooseUs').scrollIntoView();">Learn More</button>-->
+            <button style="margin-bottom: 25px;" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSf4MyqHRNm2eDlSZ0SGqRX5m1F5BHL3AYFngNSB2uuNUuPHTw/viewform?usp=sf_link', '_blank')">Sign-up</button>
           </div>
         </div>
 
@@ -69,11 +70,13 @@
           This introductory python course covers everything you need to begin programming.<br>
           (10) 1 remote hour classes in our group 1-1 format.<br>
 <!--          The courses will consist of 10, 1 hour group-1on1 classes that will be held over group Google Meet's.-->
-          Classes are weekly on <u>Saturdays at 10 AM</u> or <u>Tuesdays at 4:30 PM</u><br>
+          Classes are weekly on Saturdays at 10 AM or Tuesdays at 4:30 PM<br>
 
         </h6>
         <h6 style="font-size:25px; color:grey;text-align: center;" >
+          <u>
           Classes begin on October 22.
+          </u>
         </h6>
 
         <h4 style="font-size: 45px; margin-top:55px">Python 101</h4>
@@ -105,7 +108,7 @@
         <div style="width:100%; display: flex; justify-content: space-evenly; flex-flow: wrap; margin-top:50px">
           <button style="width: 250px; height:40px; margin-top:15px" class="b2" onclick="window.open('https://www.linkedin.com/in/dmitriy-i-55b29b222/', '_blank')">LinkedIn</button>
           <button style="width: 250px; height:40px; margin-top:15px" class="b2" onclick="window.open('https://github.com/DIvkov575', '_blank')">Github</button>
-          <button style="width: 250px; height:40px; margin-top:15px" class="b2" onclick="navigator.clipboard.writeText('dmitriy@ivkov.net')">Email</button>
+          <button style="width: 250px; height:40px; margin-top:15px" class="b2" id="copylinkButton" onclick="navigator.clipboard.writeText('dmitriy@ivkov.net')">Email</button>
 
         </div>
 
