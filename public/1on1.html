@@ -1,10 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" style="size:100px" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" >
+    <!--    <link rel="stylesheet" media="(max-width:450px)" href="./styleSmall.css" >-->
+    <!--    <link rel="stylesheet" media="(min-width:451px)" href="./styleLarge.css" >-->
+
+    <title>BSP</title>
 </head>
 <body>
+<canvas id="bg" ></canvas>
+<textarea id="url" style="display: none;">dmitriy@ivkov.net</textarea>
+<div id="preloader"></div>
+
+<main>
+
+    <header class="fullBlock" style="background-color: rgba(15, 15, 15, 0.9);margin-top:0px">
+        <h4 style="margin-bottom: 10px;">
+            Belmont School of Programming
+        </h4>
+
+        <div style="float:left; display: flex;flex-flow: column;justify-content: center; z-index: 10;" id="d1">
+            <h5 style="margin-bottom: 25px; font-size: 30px; color: rgb(218, 218, 218);">
+                Learn to program in Python!
+                <br>
+                Suited for ages 8 and up
+            </h5>
+
+            <div style="display:flex; justify-content:center">
+                <!--            <button style="margin-bottom:25px;" onClick="document.getElementById('ChooseUs').scrollIntoView();">Learn More</button>-->
+                <button style="margin-bottom: 25px;" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSf4MyqHRNm2eDlSZ0SGqRX5m1F5BHL3AYFngNSB2uuNUuPHTw/viewform?usp=sf_link', '_blank')">Sign-up</button>
+            </div>
+        </div>
+
+        <div style="float:right; width:50%;padding:0px; display: flex; justify-content: center; z-index:10">
+            <img src="assets/desk1.svg" id="deskImg" style="top:-30px; position:relative">
+        </div>
+    </header>
+
+    <div style="padding-top:70px; padding-bottom: 70px;" class="fullBlock" id="ChooseUs">
+        <h4 style="font-size: 45px;">Why Choose Us?</h4>
+        <h6 id="t3">
+            Our format combines 1 on 1 and group lessons for the best of both worlds.
+            Each student is placed into a breakout room with the tutor, such that the student can request the instructor when needed while completing the assigned work.
+            The students do not see each other within the call.
+            <br style="line-height: 10px;margin-top: 10px">
+            <u>Benefits</u>
+            <br style="line-height: 1px;">
+            - Student are able to learn at the pace best for them <br>
+            - Any & All questions get answered <br>
+            - Attention and flexebility of a 1 on 1 with the price and availablity of a group lesson
+
+            <br style="line-height: 10px;">
+            <u>Downsides</u>
+            <br style="line-height: 1px;">
+            None!
+        </h6>
+        <div style="display:flex; justify-content:center; margin-top:25px;">
+            <button onClick="document.getElementById('courses').scrollIntoView();">Continue</button>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 500px; padding-top:30px;padding-bottom:30px;" class="fullBlock" id="courses">
+        <h4 style="font-size: 45px;">Courses</h4>
+        <h6 class="t3">
+            This introductory python course covers everything you need to begin programming.<br>
+            (10) 1 remote hour classes in our group 1-1 format.<br>
+            <!--          The courses will consist of 10, 1 hour group-1on1 classes that will be held over group Google Meet's.-->
+            Classes are weekly on Saturdays at 10 AM or Tuesdays at 4:30 PM<br>
+
+        </h6>
+        <h6 style="font-size:25px; color:grey;text-align: center;" >
+            <u>
+                Classes begin on October 22.
+            </u>
+        </h6>
+
+        <h4 style="font-size: 45px; margin-top:55px">Python 101</h4>
+        <h6 class="t3">
+            Takes 10 days to complete and will all teach you all the fundamentals required to begin programming.<br>
+            Price for 10 classes is $60.00, more details in sign-up.
+        </h6>
+        <h6 style="font-size:25px; color:grey;text-align: center;" >
+            Topics covered: Variables, Operators, Conditions, Loops, Strings, Data-types, data-structures, OOP
+        </h6>
+
+        <div style="display:flex; justify-content:center; margin-top:25px;">
+            <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSf4MyqHRNm2eDlSZ0SGqRX5m1F5BHL3AYFngNSB2uuNUuPHTw/viewform?usp=sf_link', '_blank')">Sign-up</button>
+        </div>
+    </div>
+
+
+
+
+
+    </div>
+
+</main>
+
+<script>
+    let loader = document.getElementById("preloader");
+    window.addEventListener("load", function(){
+        loader.style.display = "none";
+
+    })
+</script>
+<!--<script src="three/three.js"></script>-->
+<!--<script type="module" src="three/OBJLoader.js"></script>-->
+<!--<script type="module" src="/main.js"></script>-->
+
+<!--    <script type="module" src="/three.js"></script>-->
 
 </body>
 </html>

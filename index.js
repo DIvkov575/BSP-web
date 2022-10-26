@@ -4,7 +4,7 @@ const server = express()
 server.use(express.static('public'));
 
 server.get('/', function(req, res) {
-    res.sendFile(__dirname + '/public/index.html');
+    res.sendFile(__dirname + '/public/home.html');
     // res.sendFile(__dirname + 'public/main.js');
 });
 
