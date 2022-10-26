@@ -2,15 +2,10 @@
   "name": "three-demo",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build --emptyOutDir",
-    "serve": "vite preview"
-  },
-  "devDependencies": {
-    "vite": "^2.3.0"
   },
   "dependencies": {
     "dat.gui": "^0.7.9",
-    "three": "^0.128.0"
+    "express": "^4.18.2",
+    "three": "^0.145.0"
   }
 }

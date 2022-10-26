@@ -1,13 +1,22 @@
-import './style.css';
-import * as THREE from 'three';
-import { randRange, randRotation } from './components';
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
-import {FlyControls} from "three/examples/jsm/controls/FlyControls";
-import {Loader, MeshBasicMaterial} from "three";
+// import './style.css';
+// import * as THREE from 'three';
+// import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
+// import {FlyControls} from "three/examples/jsm/controls/FlyControls";
+// import {Loader, MeshBasicMaterial} from "three";
 // import { EffectComposer } from "/node_modules/three/examples/jsm/postprocessing/EffectComposer.js";
 // import { RenderPass } from "/node_modules/three/examples/jsm/postprocessing/RenderPass.js";
 // import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
 // import { bloomPass } from "three/examples/jsm/postprocessing/bloomPass.js";
+
+// import * as THREE from './three.js';
+// const THREE = require(/tjre)
+import { OBJLoader } from "./three/OBJLoader.js"
+
+
+//my module
+function randRange(numA, numB){
+  return ((numB-numA)*Math.random())+numA
+}
 
 //setup
 let t = 0

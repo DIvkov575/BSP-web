@@ -21,7 +21,7 @@ html {scroll-behavior: smooth;}
     padding-right:7%;
     margin-bottom: var(--spacing);}
 #preloader {
-    background: #000 url(./assets/loading3.gif) no-repeat center center;
+    background: #000 url(assets/loading3.gif) no-repeat center center;
     height: 100vh;
     width: 100%;
     position: fixed;
