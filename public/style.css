@@ -1,4 +1,4 @@
-@import url("https://use.typekit.net/jmk3xov.css");
+/*@import url("https://use.typekit.net/jmk3xov.css");*/
 :root {
     --dark-bg: rgba(15, 15, 15, 0.95);
     --spacing: 350px;
@@ -16,9 +16,19 @@ html {scroll-behavior: smooth;}
     background: var(--dark-bg);
     font-size: 2.5rem;
     /* padding: 2rem; */
+    padding-left:5%;
+    padding-top:7%;
+    padding-right:5%;
+    margin-bottom: var(--spacing);}
+.semiBlock {
+    grid-column: 1/13;
+    background: var(--dark-bg);
+    font-size: 2.5rem;
     padding-left:7%;
     padding-top:7%;
     padding-right:7%;
+    margin-left: 3%;
+    margin-right: 3%;
     margin-bottom: var(--spacing);}
 #preloader {
     background: #000 url(assets/loading3.gif) no-repeat center center;
@@ -37,7 +47,7 @@ canvas {
 main {
   width: 100vw;
   color: white;
-  z-index: 99;
+  z-index: 10;
   position: absolute;
   width: 100%;
   margin: 0px auto;
