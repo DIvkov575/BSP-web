@@ -10,7 +10,7 @@
 
 // import * as THREE from './three.js';
 // const THREE = require(/tjre)
-import { OBJLoader } from "./three/OBJLoader.js"
+// import { OBJLoader } from "./three/OBJLoader.js"
 
 
 //my module
@@ -118,50 +118,50 @@ for (let i = 0; i < array.length; i+=9) {
 scene.add(plane);
 
 // container
-function addContainer() {
-  function getDir() {
-    if (Math.random() >= 0.5) {
-      return 1;
-    } else {
-      return -1;
-    }
-  }
-  const x = Math.round(Math.random()*40);
-  const z = Math.round(Math.random()*300);
-  const y = Math.round(Math.random()*400);
-  const speed = Math.random()*0.03;
-  const direction = getDir();
-  let objLoader = new OBJLoader();
-  const material1 = new THREE.MeshPhongMaterial({ color: 0x6b2020 , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
-  const material2 = new THREE.MeshPhongMaterial({ color: 0x0a1d40 , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
-  const materialPicks = [material1, material2]
-  const material = materialPicks[Math.round(Math.random())]
-  // objLoader.setPath('./assets/')
-  objLoader.load('./assets/cargo.obj', function (object) {
-    object.scale.setScalar(0.1)
-    object.rotation.y = Math.PI/4.15
-    object.rotation.x = Math.PI/2
-
-    object.position.z = -z;
-    object.position.x = 10 + x;
-    object.position.y = y;
-
-    object.traverse( function ( child ) {
-      if ( child instanceof THREE.Mesh ) {
-        child.material = material;
-      }})
-    scene.add(object)
-    object.x = x;
-    object.y = y;
-    object.z = z;
-    object.speed = speed;
-    object.direction = direction;
-    containerList.unshift(object)
-  })
-}
-for (let i = 0 ; i < 3; i++){
-  addContainer()
-}
+// function addContainer() {
+//   function getDir() {
+//     if (Math.random() >= 0.5) {
+//       return 1;
+//     } else {
+//       return -1;
+//     }
+//   }
+//   const x = Math.round(Math.random()*40);
+//   const z = Math.round(Math.random()*300);
+//   const y = Math.round(Math.random()*400);
+//   const speed = Math.random()*0.03;
+//   const direction = getDir();
+//   let objLoader = new OBJLoader();
+//   const material1 = new THREE.MeshPhongMaterial({ color: 0x6b2020 , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
+//   const material2 = new THREE.MeshPhongMaterial({ color: 0x0a1d40 , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
+//   const materialPicks = [material1, material2]
+//   const material = materialPicks[Math.round(Math.random())]
+//   // objLoader.setPath('./assets/')
+//   objLoader.load('./assets/cargo.obj', function (object) {
+//     object.scale.setScalar(0.1)
+//     object.rotation.y = Math.PI/4.15
+//     object.rotation.x = Math.PI/2
+//
+//     object.position.z = -z;
+//     object.position.x = 10 + x;
+//     object.position.y = y;
+//
+//     object.traverse( function ( child ) {
+//       if ( child instanceof THREE.Mesh ) {
+//         child.material = material;
+//       }})
+//     scene.add(object)
+//     object.x = x;
+//     object.y = y;
+//     object.z = z;
+//     object.speed = speed;
+//     object.direction = direction;
+//     containerList.unshift(object)
+//   })
+// }
+// for (let i = 0 ; i < 3; i++){
+//   addContainer()
+// }
 
 // // Sphere
 // const composer = new EffectComposer(renderer);
