@@ -1,18 +1,3 @@
-// import './style.css';
-// import * as THREE from 'three';
-// import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
-// import {FlyControls} from "three/examples/jsm/controls/FlyControls";
-// import {Loader, MeshBasicMaterial} from "three";
-// import { EffectComposer } from "/node_modules/three/examples/jsm/postprocessing/EffectComposer.js";
-// import { RenderPass } from "/node_modules/three/examples/jsm/postprocessing/RenderPass.js";
-// import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
-// import { bloomPass } from "three/examples/jsm/postprocessing/bloomPass.js";
-
-// import * as THREE from './three.js';
-// const THREE = require(/tjre)
-// import { OBJLoader } from "./three/OBJLoader.js"
-
-
 //my module
 function randRange(numA, numB){
   return ((numB-numA)*Math.random())+numA
@@ -116,73 +101,6 @@ for (let i = 0; i < array.length; i+=9) {
   } else {array[i + 2] = z1 + 30 * Math.random();}
 }
 scene.add(plane);
-
-// container
-// function addContainer() {
-//   function getDir() {
-//     if (Math.random() >= 0.5) {
-//       return 1;
-//     } else {
-//       return -1;
-//     }
-//   }
-//   const x = Math.round(Math.random()*40);
-//   const z = Math.round(Math.random()*300);
-//   const y = Math.round(Math.random()*400);
-//   const speed = Math.random()*0.03;
-//   const direction = getDir();
-//   let objLoader = new OBJLoader();
-//   const material1 = new THREE.MeshPhongMaterial({ color: 0x6b2020 , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
-//   const material2 = new THREE.MeshPhongMaterial({ color: 0x0a1d40 , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
-//   const materialPicks = [material1, material2]
-//   const material = materialPicks[Math.round(Math.random())]
-//   // objLoader.setPath('./assets/')
-//   objLoader.load('./assets/cargo.obj', function (object) {
-//     object.scale.setScalar(0.1)
-//     object.rotation.y = Math.PI/4.15
-//     object.rotation.x = Math.PI/2
-//
-//     object.position.z = -z;
-//     object.position.x = 10 + x;
-//     object.position.y = y;
-//
-//     object.traverse( function ( child ) {
-//       if ( child instanceof THREE.Mesh ) {
-//         child.material = material;
-//       }})
-//     scene.add(object)
-//     object.x = x;
-//     object.y = y;
-//     object.z = z;
-//     object.speed = speed;
-//     object.direction = direction;
-//     containerList.unshift(object)
-//   })
-// }
-// for (let i = 0 ; i < 3; i++){
-//   addContainer()
-// }
-
-// // Sphere
-// const composer = new EffectComposer(renderer);
-// composer.addPass(new RenderPass(scene, camera));
-// const bPass = new UnrealBloomPass(
-//   1,24,4,256
-// );
-// bPass.renderToScreen = true;
-// composer.addPass(bPass);
-
-// let sphereShape = new THREE.SphereGeometry(9, 20,20)
-// const sphereMaterial = new THREE.MeshPhongMaterial({ color: 0x66554d , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
-// let sphere = new THREE.Mesh( sphereShape, sphereMaterial );
-// let torusShape = new THREE.TorusGeometry(13,2, 15,75)
-// const torusMaterial = new THREE.MeshPhongMaterial({ color: 0x66554d , side:THREE.DoubleSide,flatShading:THREE.FlatShading});
-// let torus = new THREE.Mesh( torusShape, torusMaterial );
-// scene.add(sphere)
-// scene.add(torus)
-
-
-
 
 plane.rotation.y = Math.PI/2;
 plane.position.z -= 150
