@@ -19,19 +19,17 @@ html {scroll-behavior: smooth;}
     padding-left:5%;
     padding-top:7%;
     padding-right:5%;
-    margin-bottom: var(--spacing);
-    width:100%;
-  }
-/* .semiBlock { */
-/*     grid-column: 1/13; */
-/*     background: var(--dark-bg); */
-/*     font-size: 2.5rem; */
-/*     padding-left:7%; */
-/*     padding-top:7%; */
-/*     padding-right:7%; */
-/*     margin-left: 3%; */
-/*     margin-right: 3%; */
-/*     margin-bottom: var(--spacing);} */
+    margin-bottom: var(--spacing);}
+.semiBlock {
+    grid-column: 1/13;
+    background: var(--dark-bg);
+    font-size: 2.5rem;
+    padding-left:7%;
+    padding-top:7%;
+    padding-right:7%;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: var(--spacing);}
 .fullBar{
     grid-column: 1/13;
     height:50px;
