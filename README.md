@@ -1,16 +1,9 @@
-form (w/ first free lesson checkbox)
-terms of agreement
-
-what course covers, 
-
-
-
-
-
-
-
-
-
+replace form with 'submitted' submitting
+tutoring/101
+free lesson
+retry new fonts
+how to add icon within text box -> add (?) -> more info about text box ie payment service
+invoice via venmo
 
 
 docker build -t dmitriyivkov/bsp-web .

@@ -1,0 +1,312 @@
+:root {
+  --dark-bg: rgba(15, 15, 15, 0.95);
+  --spacing: 350px;
+  font-family: brandon-grotesque, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+html {
+  scroll-behavior: smooth;
+}
+#navbar {
+  grid-column: 1/13;
+  margin-bottom: 0px;
+  background: var(--dark-bg);
+}
+.fullBlock {
+  grid-column: 1/13;
+  /* height:400px; */
+  background: var(--dark-bg);
+  font-size: 2.5rem;
+  /* padding: 2rem; */
+  padding-left: 5%;
+  padding-top: 7%;
+  padding-right: 5%;
+  margin-bottom: var(--spacing);
+}
+.semiBlock {
+  grid-column: 1/13;
+  background: var(--dark-bg);
+  font-size: 2.5rem;
+  padding-left: 7%;
+  padding-top: 7%;
+  padding-right: 7%;
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-bottom: var(--spacing);
+}
+.fullBar {
+  grid-column: 1/13;
+  height: 50px;
+  background: var(--dark-bg);
+  font-size: 2.5rem;
+  z-index: 25;
+  display: flex;
+}
+#preloader {
+  background: #000 url(assets/loading3.gif) no-repeat center center;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}
+* {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+main {
+  width: 100vw;
+  color: white;
+  z-index: 10;
+  position: absolute;
+  width: 100%;
+  margin: 0px auto;
+  /* padding: px 0px; */
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  /* font-family: elevon, sans-serif; */
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+}
+button {
+  text-decoration: none;
+  border: 3px solid #5ec9cc;
+  border-radius: 3px;
+  width: 300px;
+  height: 50px;
+  background-color: #5ec9cc;
+  box-shadow: inset 0 0 0 0 #00263e;
+  transition: ease-out 0.1s;
+  font-weight: bolder;
+  font-size: 20px;
+  margin-top: 10px;
+}
+button:hover {
+  border: 3px solid #00263e;
+  box-shadow: inset 300px 0 0 0 #00263e;
+  cursor: pointer;
+  color: #000;
+}
+
+h4 {
+  color: #5ec9cc;
+  text-align: center;
+  font-size: 60px;
+}
+.tri-box {
+  width: 30%;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 1%;
+  padding-bottom: 2%;
+  padding-top: 2%;
+  background-color: rgba(50, 50, 50, 0.95);
+}
+input[type='text'],
+input[type='email'] {
+  width: 45%;
+  height: 35px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+input[type='checkbox'] {
+  transform: scale(1.5);
+  position: relative;
+  left: -12px;
+  bottom: -2.5px;
+}
+label {
+  font-size: 20px;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  margin-right: 10px;
+  margin-left: 10px;
+  color: rgba(200, 200, 200);
+}
+select {
+  width: 30%;
+  height: 35px;
+  font-size: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+@media (max-width: 414px) {
+  header {
+    margin-bottom: 400px;
+  }
+  header h4 {
+    font-size: 40px;
+    text-align: center;
+  }
+  header h5 {
+    font-size: 20px;
+    text-align: center;
+  }
+  #deskImg {
+    display: none;
+  }
+  button {
+    width: 200px;
+  }
+  #ChooseUs {
+    padding-left: 0px;
+    margin-bottom: 550px;
+  }
+  #ChooseUs h6 {
+    text-align: center;
+  }
+  #courses h6 {
+    text-align: center;
+    font-size: 25px;
+  }
+  #courses {
+    margin-bottom: 550px;
+  }
+  #aboutDimaBlock img {
+    width: 90%;
+  }
+  #aboutDimaBlock {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+@media (max-width: 480px) and (min-width: 415px) {
+  #deskImg {
+    display: none;
+  }
+  header {
+    margin-top: 90px;
+    margin-bottom: 450px;
+    /* height:350px; */
+    grid-column: 2 / span 5;
+    font-size: 2.5rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+  }
+  #ChooseUs {
+    margin-bottom: 500px;
+  }
+  #courses {
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    margin-bottom: 450px;
+  }
+  #t3 {
+    font-size: 25px;
+    line-height: 30px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+  }
+  .t5 {
+    font-size: 20px;
+  }
+  #aboutDimaBlock {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+  #dimaImg {
+    width: 75%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+  #centeringDiv {
+    display: flex;
+    justify-content: center;
+  }
+  button {
+    width: 200px;
+  }
+
+  header h5,
+  h4 {
+    text-align: center;
+  }
+  header h4 {
+    font-size: 60px;
+  }
+}
+@media (min-width: 481px) {
+  header {
+    margin-top: 90px;
+    margin-bottom: 600px;
+    background: var(--dark-bg);
+    grid-column: 2 / span 5;
+    font-size: 2.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+  }
+  header img {
+    float: right;
+  }
+  header h5,
+  h4 {
+    text-align: center;
+  }
+
+  #ChooseUs {
+    margin-bottom: 400px;
+  }
+
+  .fullBlock {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding-bottom: 50px;
+  }
+
+  .t3 {
+    margin-top: 25px;
+    margin-bottom: 5px;
+    color: rgb(200, 200, 200);
+    text-align: center;
+  }
+
+  #d1 {
+    width: 50%;
+  }
+
+  #aboutDimaBlock {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding: 75px;
+  }
+
+  #aboutDimaBlock h4,
+  h5 {
+    text-align: center;
+  }
+
+  #dimaImg {
+    margin-top: 25px;
+    width: 60%;
+  }
+}

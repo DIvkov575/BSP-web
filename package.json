@@ -3,11 +3,16 @@
   "module": "index.js",
   "type": "commonjs",
   "devDependencies": {
+    "@types/express": "^4.17.15",
+    "@types/nodemailer": "^6.4.7",
     "bun-types": "^0.2.0",
     "tslint": "^6.1.3"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "googleapis": "^110.0.0",
+    "nodemailer": "^6.8.0",
     "three": "^0.145.0"
   },
   "main": "dist/index.js",
@@ -15,7 +20,8 @@
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
     "prestart": "npm run build",
-    "start": "node .",
+    "copy": "cp -fr ./src/ ./dist/src/",
+    "start": "npm run copy && node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
