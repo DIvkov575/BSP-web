@@ -16,7 +16,7 @@ const transporter = nodemailer.createTransport({
 })
 
 const auth = new google.auth.GoogleAuth({
-  keyFile: "bsp-web-373303-66e2e656f6c6.json",
+  keyFile: "google-service-cred.json",
   scopes: "https://www.googleapis.com/auth/spreadsheets",
 });
 
@@ -30,19 +30,18 @@ server.get('/', (req, res) => {
 })
 
 server.post('/group', async (req, res) => {
-  // Send Info
-  // const input = req.body.parcel
-  const date = new Date();
-  const input = (req.body.parcel + ', ' + date).split(', ')
   let SHEET_ID;
   let subject;
+  const date = new Date();
+  const input = (req.body.parcel + ', ' + date).split(', ')
+
   if (input[0] === "freeTrial") {
-    subject = 'new trial lesson sign up'
-    SHEET_ID = process.env.SHEET_ID_2
+    subject = 'trial lesson sign up';
+    SHEET_ID = process.env.SHEET_ID_2;
   }
   else if (input[0] === "signUp") {
-    subject = 'new signup'
-    SHEET_ID = process.env.SHEET_ID_1
+    subject = 'bsc signup';
+    SHEET_ID = process.env.SHEET_ID_1;
   }
   // Send Email Notification
   const options = {
