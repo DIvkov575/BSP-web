@@ -119,7 +119,7 @@
           <input type="checkbox" id='termsButton1' name="usr_name" required /> 
         </div>
       </form> 
-      <button id="submitButton" style="margin-top:35px;">Submit</button>
+      <button id="submitButton1" style="margin-top:35px;">Submit</button>
     </div>
 
 <!-- Payed Class Sign up-->
@@ -180,42 +180,45 @@
         <input type="checkbox" id='termsButton2' name="usr_name" required /> 
       </div>
     </form>
-      <button id="submitButton" style="margin-top:35px;">Submit</button>
+      <button id="submitButton2" style="margin-top:35px;">Submit</button>
   </div>
 
           
 </body>
 <script>
-    const form1 = document.getElementById('form1')
-    const form2 = document.getElementById('form2')
     const button1 = document.getElementById('submitButton1')
     const button2 = document.getElementById('submitButton2')
     button1.addEventListener('click', buttonFunc1);
     button2.addEventListener('click', buttonFunc2);
     // button.forEach(button => button.addEventListener('click', submit))
 
-    buttonFunc1(e)=>{
+    function buttonFunc1(e){
       e.preventDefault()
+      const form = document.getElementById('form1')
       let input = []
       let termsButton = document.getElementById('termsButton1');
-      for (let i = 1; i < 4; i++){
+
+      input.push(form.elements[0].value);
+      for (let i = 1; i < 5; i++){
         if (form.elements[i].value.length <= 1) {alert("Input value too short or Missing"); return;}
         if (form.elements[i].value.length >= 50) { alert("Please shorten input"); return;}
         input.push(form.elements[i].value)
       }
-      if (!termsButton.checked) {alert("Please check that you have read terms and conditions")}
-      submit(input, endpoint)
+      if (!termsButton.checked) {alert("Please check that you have read terms and conditions"); return;}
+      submit(input)
+      form.reset();
   }
-    buttonFunc2(e)=>{
+    function buttonFunc2(e){
       e.preventDefault()
+      const form = document.getElementById('form2')
       let input = []
       let termsButton = document.getElementById('termsButton2');
       let mondayCheck = document.getElementById('monday');
       let tuesdayCheck = document.getElementById('tuesday');
       let saturdayCheck = document.getElementById('saturday');
-
-      for (let i = 1; i < 6; i++){
-        console.log(i)
+      
+      input.push(form.elements[0].value);
+      for (let i = 1; i < 7; i++){
       if (form.elements[i].value.length <= 1) {alert("Input value too short or Missing"); return;}
       if (form.elements[i].value.length >= 50) { alert("Please shorten input"); return;}
       input.push(form.elements[i].value)
@@ -231,10 +234,12 @@
 
       if (!termsButton.checked) {alert("Please check that you have read terms and conditions"); return;}
 
-      submit(input, endpoint)
+      submit(input)
+
+      form.reset();
     }
 
-    async function submit(input, endpoint){
+    async function submit(input){
       console.log(input)
       const res = await fetch('http://localhost:3000/group', {
       method: 'POST',
@@ -247,7 +252,6 @@
       })
       alert("Message Sending")
     }
-  }
  
 </script> 
 </html>

@@ -42,7 +42,8 @@ server.post('/group', async (req, res) => {
   else if (input[0] === "signUp") {
     subject = 'bsc signup';
     SHEET_ID = process.env.SHEET_ID_1;
-  }
+  }else {throw new Error('first input not equal to freetrial/signup')}
+
   // Send Email Notification
   const options = {
     from: process.env.usr,
@@ -54,25 +55,23 @@ server.post('/group', async (req, res) => {
     if (err) {
       // tslint:disable-next-line:no-console
       console.log(err)
-      return
+      return;
     }
-    // tslint:disable-next-line:no-console
-    // console.log(info.response)
   })
 
   // Update Google Sheet
-const client = await auth.getClient();
-const googleSheets = google.sheets({ version: "v4", auth: client });
-// const input_split = input.split(", ")
-await googleSheets.spreadsheets.values.append({
-    spreadsheetId: SHEET_ID,
-    auth,
-    range: "Sheet1!A:E",
-    valueInputOption: "RAW",
-    requestBody: {
-      values: [input]
-    },
-  })
+  const client = await auth.getClient();
+  const googleSheets = google.sheets({ version: "v4", auth: client });
+  // const input_split = input.split(", ")
+  await googleSheets.spreadsheets.values.append({
+      spreadsheetId: SHEET_ID,
+      auth,
+      range: "Sheet1!A:E",
+      valueInputOption: "RAW",
+      requestBody: {
+        values: [input]
+      },
+    })
 
   // notifications and status stuff
   // tslint:disable-next-line:no-console
