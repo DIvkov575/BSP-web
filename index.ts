@@ -20,6 +20,24 @@ const auth = new google.auth.GoogleAuth({
   scopes: "https://www.googleapis.com/auth/spreadsheets",
 });
 
+function sendMail(input, subject)=>{
+  const options = {
+    from: process.env.usr,
+    to: process.env.usr_receiving,
+    subject: subject,
+    text: input.join(', ')
+  }
+  transporter.sendMail(options, (err, info) => {
+    if (err) {
+      // tslint:disable-next-line:no-console
+      console.log(err)
+      return;
+    }
+  })
+
+
+}
+
 server.use(express.static('src'))
 server.use(express.json())
 
