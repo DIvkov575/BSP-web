@@ -10,15 +10,28 @@
   </head>
 
   <body>
-    <canvas id="bg" style="display:block;"></canvas>
+    <div style="position:fixed">
+      <canvas id="bg" style="display:block;position:absolute;"></canvas>
+    </div>
     <textarea id="url" style="display: none;">dmitriy@ivkov.net</textarea>
     <div id="preloader"></div>
 
-    <main>
+    <main style="padding:0px">
+
+      <div style="position:fixed; width:100%">
+      <div id="navbar" style="position:absolute">
+        <a href="./" ><h4 style="font-size:30px">BSC</h4></a> 
+        <div>
+          <a href="./group">Sign-Up</a> 
+          <a href="./1on1">Tutoring</a> 
+          <a href="./about">About</a> 
+        </div>
+        </div>
+      </div>
 
       <header class="fullBlock" style="background-color: rgba(15, 15, 15, 0.9);margin-top:0px">
         <h4 style="margin-bottom: 10px;">
-          Belmont School of Programming
+          Belmont School of Code 
         </h4>
 
         <div style="float:left; display: flex;flex-flow: column;justify-content: center; z-index: 10;" id="d1">
@@ -101,7 +114,6 @@
       window.addEventListener("load", function(){ loader.style.display = "none"; })
     </script>
     <script src="three/three.js"></script>
-    <!-- <script type="module" src="three/OBJLoader.js"></script> -->
     <script type="module" src="/main.js"></script>
   </body>
 </html>

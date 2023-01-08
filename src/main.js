@@ -75,10 +75,10 @@ function moveCamera() {
   camera.position.z = (-t * 0.025) + 100;
 
   if (t < 2500) {
-  gridEdge.rotation.y -= 0.5
+  gridEdge.rotation.y += 0.5
   }
   if (t > 2500) {
-    gridEdge.rotation.y -= 0.5
+    gridEdge.rotation.y += 0.5
     camera.rotation.y = -(t-2500)*0.00015;
     camera.position.x = (t-2500)*0.00015;
   }

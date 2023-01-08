@@ -10,14 +10,23 @@
 <body style="background-color:rgba(15, 15, 15, 0.95);
 ">
 
-  <!-- <div style="margin-bottom: 500px; padding-top:30px;padding-bottom:30px; background-color" fullBlock" id="courses"> -->
+      <div style="position:fixed; width:100%">
+      <div id="navbar" style="position:absolute">
+        <a href="./" ><h4 style="font-size:30px">BSC</h4></a> 
+        <div>
+          <a href="./group">Sign-Up</a> 
+          <a href="./1on1">Tutoring</a> 
+          <a href="./about">About</a> 
+        </div>
+        </div>
+      </div>
     <div style="background-color:rgba(0,0,0,0); margin-bottom:0px" class='fullBlock'>
-<!-- <div style="border: 1px solid black; border-radius:10px; padding:2%"> -->
-        <h4 style="font-size: 45px">Python 101</h4>
+        <h4 style="font-size: 60px">Python 101</h4>
         <h6 class="t3" style="margin-bottom:25px">
-          This introductory python course covers everything you need to begin programming.<br>
-    No installation of any sofware is needed. You can even have your first class free on us.<br> Below are the different sections of the full python course.</h6>
-      <div style="display:flex; justify-content: space-around">            
+          This introductory python course covers everything you need to begin programming.
+          No installation of any sofware is needed. You can even have your first class free on us.<br> 
+          Below are the topics covered by the full python course.</h6>
+      <div style="display:flex; justify-content: space-around; margin-bottom:35px;margin-top:35px;">            
         <div class="tri-box"> 
           <h5 style="text-decoration:underline; color:white">Beginner</h5>
           <h6 class="t3">
@@ -26,19 +35,19 @@
         <div class="tri-box"> 
             <h5 style="text-decoration:underline; color:white">Intermediate</h5>
             <h6 class="t3">(20-30) classes. Covers (OOP In-depth, Iterators, Recursion, Error Handling, generators, runtimes, data-structures, algorithms, Fileio, Git/Github)</h6>
-          </div>
+        </div>
         <div class="tri-box"> 
             <h5 style="text-decoration:underline; color:white">PyGame</h5>
            <h6 class="t3">(20-30) classes. Creating games with the help of Python and Pygame lib Covers (Turtle/Canvas, Tkinter, Pygame, Prevailing-State's, Fileio/Executables) </h6>
         </div>
       </div> 
 <div style="display:flex; justify-content:center; margin-top:15px">
-          <button style="margin:15px">Sign-Up</button>
-          <button style="margin:15px">Try a free lesson</button>
+          <button onClick="document.getElementById('form2').scrollIntoView();" style="margin:15px; height:75px; font-size:30px; border-radius:7px">Sign-Up</button>
+          <button onClick="document.getElementById('form1').scrollIntoView();"style="margin:15px; height:75px; font-size:30px; border-radius:7px">Try a free lesson</button>
       </div>
 <!-- </div> -->
-<div>
-       <h4 style="margin-top:50px">Format</h4>
+      <div id="format" style="background-color:rgb(50,50,50); position:relative; left:-5.5%; width:103%; padding-left:4%; padding-right:4%; padding-bottom:50px; margin-top:50px">
+       <h4 style="margin-top:30px">Format</h4>
         <h6 class="t3">The reason we give a range for number of classes it takes to complete our course is due to our unique class format. Each student works to complete the material independently until they have a question or issue. This is when one of our tutors will step it to resolve any any/all student questions</h6>
       <h6 class="t3" style="text-align:left"><u>Benefits</u> <br style="line-height: 1px;">
           - Student are able to learn at the pace best for them <br>
@@ -89,7 +98,7 @@
 
   <div style="margin:auto; border: 1px solid black; padding:25px; margin-top:25px; background-color:rgba(50,50,50,0.95); border-radius:5px; width:800px ">
     <form id="form1">
-        <h4 style="text-align:left">Free Trial Class</h4>          
+        <h4 style="text-align:left; margin-bottom:25px">Free Trial Class</h4>          
         <input type="text" name="type" value="freeTrial" style="display:none"/>
         <div style="display:flex;">
           <div style="display:flex; justify-content:center; flex-flow:column; width:40%; margin-left:0px">
@@ -168,14 +177,14 @@
         <input type="text" name="usr_name" placeholder="username/email" required /> 
       </div>
 
-      <div style="margin-bottom:25px; background-color:rgba(50, 50, 50, 0.95); border-radius:5px; border: 1px solid blac">
+      <div style="margin-bottom:0px; background-color:rgba(50, 50, 50, 0.95); border-radius:5px; border: 1px solid blac">
         <label style="margin-bottom:5px"><b>Attendence Days:</b></label>
         <label for="Monday">Monday</label> <input type="checkbox" name="Monday" id="monday"> 
         <label for="Tuesday">Tuesday</label> <input type="checkbox" name="Tuesday" id="tuesday"> 
         <label for="Saturday">Saturday</label> <input type="checkbox" name="Saturday" id="saturday">
       </div>
-
-      <div style="font-size:25px; font-weight: bold">
+<!-- <h5 style="font-size:18px; text-align:left; margin-bottom:20px; margin-left:10px; color:rgba(200, 200, 200); font-weight:400">Selecting more classes above simply increases billing rate, the materia  </h5> -->
+      <div style="font-size:25px; font-weight: bold; margin-top:20px">
         <label for="usr_name">I have read <a href="./assets/terms.txt" target="_blank" style="color: #5ec9cc;">Terms and Conditions</a></label>
         <input type="checkbox" id='termsButton2' name="usr_name" required /> 
       </div>

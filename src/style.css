@@ -6,28 +6,66 @@
   font-weight: 400;
   font-style: normal;
 }
+body {
+  margin: 0;
+  box-sizing:inherit;
+}
 html {
   scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+* {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  /* box-sizing: border-box; */
 }
 #navbar {
-  grid-column: 1/13;
+  float:top;
   margin-bottom: 0px;
+  width:100%;
   background: var(--dark-bg);
+   /* background-color:red;  */
+  z-index:99;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+#navbar > * {
+  margin-top:5px;
+  margin-bottom:5px;
+  margin-left:25px;
+  margin-right:25px;
+  text-decoration:none;
+}
+#navbar > div {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width:400px;
+}
+#navbar div a {
+  /* background-color: rgb(50,50,50); */
+  border: 1px solid black;
+  color: #5ec9cc;
+  font-size:22px;
+  font-weight:bold;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:40px;
+  width:125px;
 }
 .fullBlock {
   grid-column: 1/13;
-  /* height:400px; */
   background: var(--dark-bg);
   font-size: 2.5rem;
-  /* padding: 2rem; */
   padding-left: 5%;
   padding-top: 7%;
   padding-right: 5%;
   margin-bottom: var(--spacing);
 }
 .semiBlock {
-  grid-column: 1/13;
-  background: var(--dark-bg);
   font-size: 2.5rem;
   padding-left: 7%;
   padding-top: 7%;
@@ -41,7 +79,7 @@ html {
   height: 50px;
   background: var(--dark-bg);
   font-size: 2.5rem;
-  z-index: 25;
+  z-index: 10;
   display: flex;
 }
 #preloader {
@@ -51,13 +89,8 @@ html {
   position: fixed;
   z-index: 100;
 }
-* {
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
 canvas {
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   left: 0;
 }
@@ -71,9 +104,6 @@ main {
   /* padding: px 0px; */
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-}
-body {
-  margin: 0;
 }
 
 h1,
@@ -103,7 +133,10 @@ button:hover {
   cursor: pointer;
   color: #000;
 }
-
+#copyButton:active {
+  content: "copied";
+  background-color:red;
+}
 h4 {
   color: #5ec9cc;
   text-align: center;
@@ -248,7 +281,6 @@ select {
   button {
     width: 200px;
   }
-
   header h5,
   h4 {
     text-align: center;

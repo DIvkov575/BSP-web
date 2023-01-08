@@ -6,6 +6,8 @@ how to add icon within text box -> add (?) -> more info about text box ie paymen
 invoice via venmo
 
 
+
+"prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
 docker build -t dmitriyivkov/bsp-web .
 docker run -dp 80:80 dmitriyivkov/bsp-web
 docker push dmitriyivkov/bsp-web
