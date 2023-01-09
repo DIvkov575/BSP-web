@@ -1,10 +1,15 @@
+replace form with 'submitted' submitting
+tutoring/101
+free lesson
+retry new fonts
+how to add icon within text box -> add (?) -> more info about text box ie payment service
+invoice via venmo
 
-Docker
+
+
+"prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
 docker build -t dmitriyivkov/bsp-web .
 docker run -dp 80:80 dmitriyivkov/bsp-web
 docker push dmitriyivkov/bsp-web
 
-https://docs.docker.com/engine/reference/commandline/push/
-https://labs.play-with-docker.com/p/ccfvlf5d48eg00a5fb7g
-
-docker system prune
+bun does not support expresse

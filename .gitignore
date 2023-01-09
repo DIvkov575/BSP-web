@@ -3,3 +3,8 @@ node_modules
 dist
 dist-ssr
 *.local
+session.vim
+.env
+google-service-cred.json
+bsp-web-373303-66e2e656f6c6.json
+src/three/
