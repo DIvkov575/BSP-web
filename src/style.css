@@ -45,7 +45,7 @@ html {
 }
 #navbar div a {
   /* background-color: rgb(50,50,50); */
-  border: 1px solid black;
+  border: 1px solid rgb(10,10,10);
   color: #5ec9cc;
   font-size:22px;
   font-weight:bold;

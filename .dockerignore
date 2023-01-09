@@ -3,3 +3,7 @@ README.md
 .gitignore
 .expo/
 .idea/
+Session.vim
+.DS_Store
+.env
+tslint.json

@@ -78,7 +78,7 @@
       form.reset();
 
       console.log(input)
-      const res = await fetch('http://localhost:3000/1on1', {
+      const res = await fetch(window.location.href, {
       method: 'POST',
         headers: {
         "Content-Type":"application/json"

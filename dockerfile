@@ -1,8 +1,9 @@
-FROM node
-WORKDIR /app
-COPY package.json package.json
-COPY package-lock.json package-lock.json
+FROM node:alpine
+WORKDIR /usr/programming/bsp-web
+COPY package.json .
+COPY package-lock.json .
 RUN npm install
+  # && npm install typescript -g
 COPY . .
-EXPOSE 3000
-ENTRYPOINT ["node", "index.js"]
+# RUN tsc
+CMD ["node", "./dist/index.js"]

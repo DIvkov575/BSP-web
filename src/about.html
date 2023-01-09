@@ -120,7 +120,7 @@
       form.reset();
 
       console.log(input)
-      const res = await fetch('http://localhost:3000/about', {
+      const res = await fetch(window.location.href, {
       method: 'POST',
         headers: {
         "Content-Type":"application/json"

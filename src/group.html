@@ -247,10 +247,10 @@
 
       form.reset();
     }
-
+    console.log(window.location.href)
     async function submit(input){
       console.log(input)
-      const res = await fetch('http://localhost:3000/group', {
+      const res = await fetch(window.location.href, {
       method: 'POST',
         headers: {
         "Content-Type":"application/json"
