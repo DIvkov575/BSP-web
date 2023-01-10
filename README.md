@@ -1,3 +1,10 @@
+andrey likes to complain about my readme's.
+my website with three js frontend!
+
+package is out of date
+page links to readme instead of website
+
+
 replace form with 'submitted' submitting
 tutoring/101
 free lesson
