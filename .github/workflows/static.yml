@@ -22,8 +22,6 @@ concurrency:
 jobs:
   # Single deploy job since we're just deploying
   
-    use-node: 18.x
-  
   deploy:
     environment:
       name: github-pages
@@ -34,8 +32,9 @@ jobs:
         uses: actions/checkout@v3
       - name: Build
         uses: actions/setup-node@v3
-        with: node-version: 18.x
-        cache: 'npm'
+        with: 
+          node-version: 18.x
+          cache: 'npm'
       - run: npm install  
       - run: npm run build
       - name: Setup Pages
