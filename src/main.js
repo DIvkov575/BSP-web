@@ -3,7 +3,7 @@ let t = 0
 let cubeList = [];
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({canvas: document.querySelector('#bg'),});
+const renderer = new THREE.WebGLRenderer({canvas: document.querySelector('#bg'), antialias:true});
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(30);
@@ -75,10 +75,10 @@ function moveCamera() {
   camera.position.z = (-t * 0.025) + 100;
 
   if (t < 2500) {
-  gridEdge.rotation.y += 0.4
+  gridEdge.rotation.y -= 0.3
   }
   if (t > 2500) {
-    gridEdge.rotation.y += 0.4
+    gridEdge.rotation.y -= 0.3
     camera.rotation.y = -(t-2500)*0.00015;
     camera.position.x = (t-2500)*0.00015;
   }
