@@ -286,7 +286,7 @@ header {
     /* margin-left:-5px; */
   }
   .form-wrapper input[type='text'],
-  input[type='email'] {
+  input[type='email'], textarea {
     width: 300px;
   }
   #navbar > div {
