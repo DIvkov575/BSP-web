@@ -19,6 +19,9 @@ html {
   margin-bottom: 0px;
   /* box-sizing: border-box; */
 }
+  #dimaImg {
+  z-index:5;
+  }
 .form-wrapper {
   margin: auto;
   border: 1px solid black;
@@ -32,7 +35,7 @@ html {
   float: top;
   margin-bottom: 0px;
   width: 100%;
-  background: var(--dark-bg);
+  background: rgba(25,25,25, 0.5);
   /* background-color:red;  */
   z-index: 99;
   display: flex;
@@ -223,36 +226,40 @@ header {
   align-items: center;
 }
 
+.name-form-div {
+  flex-flow: row;
+}
+.name-form-div > div {
+  width: 400px;
+}
+.name-form-div > div > * {
+  width: 350px;
+}
 
-  .name-form-div {
-    flex-flow: row;
-  }
-  .name-form-div > div {
-    width:400px;
-  }
-  .name-form-div > div > * {
-    width: 350px; 
-  }
-
-  .other-input {
-    width:750px;
-  }
-  .t3 {
-    font-size: 25px;
-    line-height: 30px;
-    color: rgb(200, 200, 200);
-    margin-top: 15px;
-    margin-bottom: 25px;
-  }
+.other-input {
+  width: 750px;
+}
+.t3 {
+  font-size: 25px;
+  line-height: 30px;
+  color: rgb(200, 200, 200);
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
 .b1 {
-  height:75px;
-} 
+  height: 75px;
+}
+  #tmp-about-f {
+    padding-left: 6%;
+    padding-right: 6%;
+    padding-top: 5px;
+  }
 @media (max-width: 414px) {
-    .b1 {
-      height:125px;
-    } 
+  .b1 {
+    height: 125px;
+  }
   .other-input {
-    width:300px;
+    width: 300px;
   }
   .name-form-div {
     flex-flow: column;
@@ -262,7 +269,7 @@ header {
   /* } */
   /* .name-form-div > div > * { */
   /*   width: 300px */
-/* }jlk  */
+  /* }jlk  */
   #body-wrapper {
     /* padding-left: 5%; */
     /* padding-right: 5%; */
@@ -278,16 +285,17 @@ header {
     /* margin:0px; */
     /* margin-left:-5px; */
   }
-  .form-wrapper  input[type='text'],input[type='email'] {
+  .form-wrapper input[type='text'],
+  input[type='email'] {
     width: 300px;
   }
   #navbar > div {
     display: none;
   }
   .tri-box {
-    padding-left:15px;
-    padding-bottom:0px;
-    padding-top:15px;
+    padding-left: 15px;
+    padding-bottom: 0px;
+    padding-top: 15px;
   }
   .tri-box-wrapper {
     display: none !important;
@@ -318,6 +326,13 @@ header {
     padding-left: 0px;
     margin-bottom: 550px;
   }
+  #about-page-wrapper {
+    display: flex;
+    flex-flow: column;
+  }
+  #tmp-about-f {
+    padding:0px;
+  }
   #ChooseUs h6 {
     text-align: center;
   }
@@ -337,12 +352,23 @@ header {
     margin-right: 0px;
   }
 }
-
+#dimaImg {
+  transform: scale(0.75);
+}
+#wrapper {
+  justify-content: center;
+  flex-flow: wrap;
+}
+#projectBs {
+  display: none;
+}
 @media (max-width: 550px) and (min-width: 415px) {
   #deskImg {
     display: none;
   }
-
+  .fullBlock {
+    padding: 0px;
+  }
   .form-wrapper {
     width: 100%;
   }
