@@ -89,6 +89,9 @@ function animate() {
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
 }
+window.onscroll = function () {
+  window.scrollLeft = 0;
+}
 document.body.onscroll = moveCamera;
 moveCamera();
 animate();

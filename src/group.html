@@ -9,6 +9,12 @@
 </head>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G19NKZPGGF"></script>
 <script>
+  
+window.onscroll = function () {
+  window.scrollLeft = 0;
+}
+</script>
+<script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -33,24 +39,24 @@
           This introductory python course covers everything you need to begin programming.
           No installation of any sofware is needed. You can even have your first class free on us.<br> 
           Below are the topics covered by the full python course.</h6>
-      <div style="display:flex; justify-content: space-around; margin-bottom:35px;margin-top:35px;">            
+      <div class="tri-box-wrapper_2">            
         <div class="tri-box"> 
-          <h5 style="text-decoration:underline; color:white">Beginner</h5>
+          <h5 style="text-decoration:underline; color:white; align-text:center">Beginner</h5>
           <h6 class="t3">
           (10-20) classes. Covers the fundamentals of python including (Variables, Operators, Conditions, Loops, Strings, common, lists, tuples, dicts, OOP)</h6>
         </div>
         <div class="tri-box"> 
-            <h5 style="text-decoration:underline; color:white">Intermediate</h5>
+            <h5 style="text-decoration:underline; color:white; align-text:center">Intermediate</h5>
             <h6 class="t3">(20-30) classes. Covers (OOP In-depth, Iterators, Recursion, Error Handling, generators, runtimes, data-structures, algorithms, Fileio, Git/Github)</h6>
         </div>
         <div class="tri-box"> 
-            <h5 style="text-decoration:underline; color:white">PyGame</h5>
+            <h5 style="text-decoration:underline; color:white; align-text:center">PyGame</h5>
            <h6 class="t3">(20-30) classes. Creating games with the help of Python and Pygame lib Covers (Turtle/Canvas, Tkinter, Pygame, Prevailing-State's, Fileio/Executables) </h6>
         </div>
       </div> 
 <div style="display:flex; justify-content:center; margin-top:15px">
-          <button onClick="document.getElementById('form2').scrollIntoView();" style="margin:15px; height:75px; font-size:30px; border-radius:7px">Sign-Up</button>
-          <button onClick="document.getElementById('form1').scrollIntoView();"style="margin:15px; height:75px; font-size:30px; border-radius:7px">Try a free lesson</button>
+          <button class='b1' onClick="document.getElementById('form2').scrollIntoView();" style="margin:15px; font-size:30px; border-radius:7px">Sign-Up</button>
+          <button class='b1' onClick="document.getElementById('form1').scrollIntoView();"style="margin:15px; font-size:30px; border-radius:7px">Try a free lesson</button>
       </div>
 <!-- </div> -->
       <div id="format" style="background-color:rgb(50,50,50); position:relative; left:-5.5%; width:103%; padding-left:4%; padding-right:4%; padding-bottom:50px; margin-top:50px">
@@ -68,7 +74,7 @@
 </div>
 
         <h4 style="margin-top:50px">Pricing</h4>
-<div style="display:flex; justify-content:space-around ">
+<div class="tri-box-wrapper_2">
         <div class="tri-box" style="padding-top:0%; padding-bottom:2.5%;"> 
          <h6 class="t3"><u>10 Classes</u><br>
             10 hours <br>
@@ -107,16 +113,16 @@
     <form id="form1">
         <h4 style="text-align:left; margin-bottom:25px">Free Trial Class</h4>          
         <input type="text" name="type" value="freeTrial" style="display:none"/>
-        <div style="display:flex;">
-          <div style="display:flex; justify-content:center; flex-flow:column; width:40%; margin-left:0px">
+        <div class="name-form-div" style="display:flex;">
+          <div style="display:flex; justify-content:center; flex-flow:column; margin-left:0px">
             <label for="firstName"><b>First Name</b></label>
-            <input type="text" name="firstName" style="width:90%" required />
+            <input type="text" name="firstName" required />
           </div>
-          <div style="display:flex; justify-content:center; flex-flow:column; width:40%">
+          <div style="display:flex; justify-content:center; flex-flow:column;">
             <label for="lastName"><b>Last Name</b></label>
-            <input type="text" name="lastName" style="width:90%" required />
+            <input type="text" name="lastName" required />
           </div>
-        </div>        
+      </div>        
         <div style="display:flex; justify-content:center; flex-flow:column">
           <label for="email"><b>Email</b></label>
           <input type="email" name="email" required>
@@ -124,9 +130,6 @@
 
         <div style="margin-bottom:25px; background-color:rgba(50, 50, 50, 0.95); border-radius:5px; border: 1px solid blac">
           <label style="margin-bottom:5px"><b>Select a date (Mon/Tues/Sat):</b></label>
-          <!-- <label for="Monday">Monday</label> <input type="radio" name="day" value="Monday" checked="checked">  -->
-          <!-- <label for="Tuesday">Tuesday</label> <input type="radio" name="day" value="Tuesday"> -->
-          <!-- <label for="Saturday">Saturday</label> <input type="radio" name="day" value="Saturday"> -->
             <input type="text" name="Day">
         </div>
 
@@ -144,14 +147,14 @@
     <h4 style="text-align:left; margin-bottom:25px">Sign-Up</h4>
     <form id="form2">
       <input type="text" name="type" value="signUp" style="display:none">
-        <div style="display:flex;">
-          <div style="display:flex; justify-content:center; flex-flow:column; width:40%; margin-left:0px">
+        <div class="name-form-div" style="display:flex;">
+          <div style="display:flex; justify-content:center; flex-flow:column; margin-left:0px">
             <label for="firstName"><b>First Name</b></label>
-            <input type="text" name="firstName" style="width:90%" required />
+            <input type="text" name="firstName" required />
           </div>
-          <div style="display:flex; justify-content:center; flex-flow:column; width:40%">
+          <div style="display:flex; justify-content:center; flex-flow:column;">
             <label for="lastName"><b>Last Name</b></label>
-            <input type="text" name="lastName" style="width:90%" required />
+            <input type="text" name="lastName" required />
           </div>
         </div>        
       <div style="display:flex; justify-content:center; flex-flow:column">
