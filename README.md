@@ -1,3 +1,4 @@
+
 andrey likes to complain about my readme's.
 my website with three js frontend!
 
@@ -14,9 +15,17 @@ invoice via venmo
 
 
 
+v3 todo:
+move html -> js
+html -> css
+implement css framework?
+more ts
+eslint
+bun docker image
+google analytics
+phone compatibility
+
+
 "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
 docker build -t dmitriyivkov/bsp-web .
 docker run -dp 80:80 dmitriyivkov/bsp-web
-docker push dmitriyivkov/bsp-web
-
-bun does not support expresse
