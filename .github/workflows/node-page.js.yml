@@ -28,7 +28,4 @@ jobs:
         cache: 'npm'
     - run: npm install
     - run: npm run build --if-present
-#    - run: npm test
 
-
-# add this at one point https://github.com/marketplace/actions/setup-alpine-linux-environment

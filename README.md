@@ -1,5 +1,18 @@
-package out of date 
-page misrepresents
+
+andrey likes to complain about my readme's.
+my website with three js frontend!
+
+package is out of date
+page links to readme instead of website
+
+
+replace form with 'submitted' submitting
+tutoring/101
+free lesson
+retry new fonts
+how to add icon within text box -> add (?) -> more info about text box ie payment service
+invoice via venmo
+
 
 
 v3 todo:
