@@ -1,4 +1,5 @@
 //setup
+import three from './three';
 let t = 0
 let cubeList = [];
 const scene = new THREE.Scene();

@@ -197,14 +197,19 @@ select {
   border-radius: 5px;
   padding-left: 5px;
 }
+.tri-box-wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap
+}
 @media (max-width: 414px) {
   #navbar > div {
     display: none;
   }
 
-.form-wrapper {
-  width:400px;
-}
+  .form-wrapper {
+    width: 400px;
+  }
 
   header {
     margin-bottom: 400px;
@@ -253,9 +258,9 @@ select {
     display: none;
   }
 
-.form-wrapper {
-  width:400px;
-}
+  .form-wrapper {
+    width: 400px;
+  }
   header {
     margin-top: 90px;
     margin-bottom: 450px;
