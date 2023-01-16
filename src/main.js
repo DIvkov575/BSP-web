@@ -1,5 +1,5 @@
 //setup
-import three from './three';
+// import three from './three/three.js';
 let t = 0
 let cubeList = [];
 const scene = new THREE.Scene();
@@ -76,10 +76,10 @@ function moveCamera() {
   camera.position.z = (-t * 0.025) + 100;
 
   if (t < 2500) {
-  gridEdge.rotation.y += 0.4
+  gridEdge.rotation.y -= 0.2 
   }
   if (t > 2500) {
-    gridEdge.rotation.y += 0.4
+    gridEdge.rotation.y -= 0.02
     camera.rotation.y = -(t-2500)*0.00015;
     camera.position.x = (t-2500)*0.00015;
   }

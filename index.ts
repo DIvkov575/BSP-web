@@ -75,7 +75,7 @@ function send(content: JSON){
   }
   else {throw new Error('first input not equal to freetrial/signup')}
 
-  // sendMail(input, subject)
+  sendMail(input, subject)
   sendSheet(input, SHEET_ID, sheetNum)
 
   // tslint:disable-next-line:no-console
