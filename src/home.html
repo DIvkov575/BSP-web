@@ -6,27 +6,125 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description" content="stuff ig">
 
-  <title>Webpack Demo</title>
+  <title>BSC</title>
 </head>
 
 <body>
-  <canvas id="bg" />
-  <div id="b1" style="background-color: rbga(00,00,00,0.9); padding:10px">
-    <h4 class="title-text" style="font-size: 6vw;"> Belmont School of Code </h4>
-    <div style="display:flex; justify-content:center; align-items:center; overflow:auto">
-      <h5 style="font-size:30px; margin-right:10px">Give your child the skills of tomorrow </h5>
-      <button onClick="document.getElementById('ChooseUs').scrollIntoView();">Continue</button>
+  <div style="position:fixed; z-index:-1;">
+    <canvas id="bg" style="position:absolute;top:-25px;"></canvas>
+  </div>
+  <textarea id="url" style="display: none;">dmitriy@ivkov.net</textarea>
+  <div id="preloader"></div>
+
+  <div style="background-color: rbga(00,00,00,0.9); padding:30px;margin:10px;margin-top:25px; border-radius:20px; display:flex; flex-flow:column; align-items:center; ">
+      <h4 class="title-text" style="font-size: 6.5vw; margin-bottom:20px">Belmont School of Code</h4>
+      <img src="./assets/logo1.png" style="width:55px; height:55px;" alt="logo" />
+
+      <div id="div1">
+        <h5 style="font-size:20px; margin-right:10px">Give your child
+          the skills of tomorrow
+       <br />
+        Be prepared and take a coding class</h5>
+        <button onclick="document.getElementById('ChooseUs-scroll-padding').scrollIntoView();">Continue</button>
+        <!-- <button id="b1">Continue</button> -->
+      </div>
+  </div>
+
+
+
+  <div id="ChooseUs-scroll-padding" style="margin-top:1200px; padding-top:400px;background-color:transparent">
+    <div style="padding:30px" class="ChooseUs">
+
+      <h4 class="title-text" style="font-size:5vw">Why Choose Us?</h4>
+      <ul>
+        <li>Experienced and knowledgeable teachers and staff</li>
+        <li>Proven teaching material and syllabus for optimal results</li>
+        <li>An innovative learning format that combines the best of personalized 1-on-1 instruction and engaging group
+          lessons</li>
+        <li>Small class sizes for individual attention and active participation</li>
+      </ul>
     </div>
   </div>
 
-  <div>
+  <div class="py101"style="padding:30px;padding-bottom:50px; display:flex; flex-flow:column;background-color:rgb(225,225,225)">
+    <h4 class="title-text" style="font-size:5vw">Python 101</h4>
+    <h5 style="margin-top:15px;">Python 101 is an introductory course which covers everying you need to begin programming. Due to the dynamic
+      pacing of our classes, course completion time varies</h5>
+    <ul>
+      <li>Fundamentals (5-10): Variables, operators, conditions, Loops, builtin Data-structures</li>
+      <li>Intermediate (10-15): OOP, Decorators, Lambda, Error hanadling, Dunder methods, FileIo</li>
+      <li>Advanced (10-15): Student pursue's a topic of choice (Web-dev, Games, Machine-Learning, or Algorithms)</li>
+    </ul>
 
+    <h5> Even after a student graduates we provide a list of projects or 'next-steps', for students to pursue
+      independently </h5>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.151.3/three.js"
-    integrity="sha512-BwyZPvtawNInmLsREIDelsBWnyXzmR11MF6SG1VSkQ51YhMkdNFxL9sGKgRzTX7drQzCLVheb4sobHNGpwCn+w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script type="module" src="./three-stuff.js"></script>
+  <div class="pricing-div" style="padding:30px">
+    <h4 class="title-text" style="font-size:5vw">Pricing</h4>
+
+    <div class="tri-box-wrapper">
+      <div class="tri-box" style="padding-top:0%; padding-bottom:2.5%;">
+        <h6 class="t3"><u>10 Classes</u><br>
+          10 hours<br>
+          $150($15.00 per class)</h6>
+      </div>
+
+      <div class="tri-box" style="padding-top:0%; padding-bottom:2.5%;">
+        <h6 class="t3"><u>20 Classes</u><br>
+          20 hours<br>
+          250 ($12.50 per class)</h6>
+      </div>
+
+      <div class="tri-box" style="padding-top:0%; padding-bottom:2.5%;">
+        <h6 class="t3"><u>30 Classes (full course)</u><br>
+          30 hours<br>
+          $300 ($10.00 per class)</h6>
+      </div>
+    </div>
+  </div>
+
+  <div id="form-wrapper" style="margin-top:50px;">
+    <form id="form1">
+      <h4 class="title-text" style="font-size:5vw">Free Trial Sign-Up</h4>
+
+      <div>
+        <label for="firstName"><b>First Name</b></label>
+        <input type="text" name="firstName" required="">
+      </div>
+
+      <div>
+        <label for="lastName"><b>Last Name</b></label>
+        <input type="text" name="lastName" required="">
+      </div>
+
+
+      <div>
+        <label for="email"><b>Email</b></label>
+        <input type="email" name="email" required="">
+      </div>
+
+      <div>
+        <label for="date">Date</label>
+        <input type="text" name="date" placeholder="Please enter some possible dates">
+      </div>
+
+      <div>
+        <label for="usr_name">
+          I have read
+          <a href="./assets/terms.txt" target="_blank" style="color: #5ec9cc;">
+            Terms and Conditions
+          </a>
+        </label>
+      </div>
+
+      <button>Submit</button>
+    </form>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.js"></script>
 </body>
 
 </html>

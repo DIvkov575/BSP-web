@@ -5,13 +5,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server  --config webpack.dev.js --open",
+    "start": "webpack-dev-server  --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jquery": "^3.5.16",
     "css-loader": "^6.7.4",
     "file-loader": "^6.2.0",
     "html-loader": "^4.2.0",

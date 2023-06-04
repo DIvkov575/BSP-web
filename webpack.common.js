@@ -3,8 +3,12 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    main: "./src/index.ts",
-    vendor: "./src/vendor.js"
+    three: "./src/three-stuff.js",
+    main: {
+      dependOn: "three",
+      import: "./src/index.ts"
+    },
+    vendor: "./src/vendor.js",
   },
   module: {
     rules: [
@@ -13,15 +17,9 @@ module.exports = {
         use: ["html-loader"]
       },
       {
-        test: /\.(svg|png|jpg|gif)$/,
-        use: {
-          loader: "file-loader",
-          options: {
-            name: "[name].[hash].[ext]",
-            outputPath: "imgs"
-          }
-        }
-      }
+      test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+      type: 'asset/resource',
+    },
     ]
   }
 };

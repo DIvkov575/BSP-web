@@ -1,3 +1,4 @@
+//setup
 let t = 0
 let cubeList = [];
 const scene = new THREE.Scene();
@@ -35,33 +36,16 @@ function addWireFrameCube(size) {
 for (let index = 0; index < 20; index++) { cubeList.push(addWireFrameCube(7)) }
 for (let index = 0; index < 7; index++) { addWireFrameCube(20) }
 
-// grid actually the sphere
+// grid
 let gridGeo = new THREE.SphereGeometry( 500, 150,100);
-let geom = new THREE.SphereGeometry( 500, 50,50);
-// let gridMat = new THREE.MeshPhongMaterial( { color: 0x000000 } );
-let gridMat = new THREE.MeshPhongMaterial({
-uniforms: {
-    size: {
-      value: new THREE.Vector3(geom.parameters.width, geom.parameters.height, geom.parameters.depth).multiplyScalar(0.5)
-    },
-    thickness: {
-      value: 0.001
-    },
-    smoothness: {
-      value: 0.01
-    }
-  },
-  vertexShader: THREE.vertexShader,
-  fragmentShader: THREE.fragmentShader
-});
+let gridMat = new THREE.MeshPhongMaterial( { color: 0x000000 } );
 let grid = new THREE.Mesh( gridGeo, gridMat );
-// let gridEdge = new THREE.EdgesHelper(grid, 0xaaaaff);
+let gridEdge = new THREE.EdgesHelper(grid, 0xaaaaff);
 grid.position.x -= 505.1
-// gridEdge.position.x -= 505;
-// gridEdge.material.linewidth = 3;
-grid.material.linewidth = 3;
+gridEdge.position.x -= 505;
+gridEdge.material.linewidth = 3;
 scene.add(grid);
-// scene.add(gridEdge);
+scene.add(gridEdge);
 
 //plane
 let planeShape = new THREE.PlaneGeometry(150,350,20,25)
@@ -90,16 +74,14 @@ function moveCamera() {
   const t = -document.body.getBoundingClientRect().top;
   camera.position.z = (-t * 0.025) + 100;
 
-  // if (t < 2500) {
-    // gridEdge.rotation.y -= 0.001;
-    grid.rotation.y -= 0.001;
-  // }
-  // if (t > 2500) {
-  //   grid.rotation.y -= 0.001;
-  //   // gridEdge.rotation.y -= 0.001;
-  //   camera.rotation.y = -(t-2500)*0.00015;
-  //   camera.position.x = (t-2500)*0.00015;
-  // }
+  if (t < 2500) {
+  gridEdge.rotation.y += 0.4
+  }
+  if (t > 2500) {
+    gridEdge.rotation.y += 0.4
+    camera.rotation.y = -(t-2500)*0.00015;
+    camera.position.x = (t-2500)*0.00015;
+  }
 }
 
 function animate() {
@@ -107,6 +89,11 @@ function animate() {
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
 }
+
+class FullCanvas {
+
+}
+
 document.body.onscroll = moveCamera;
 moveCamera();
 animate();

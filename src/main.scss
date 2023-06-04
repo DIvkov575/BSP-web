@@ -1,5 +1,7 @@
-$teal: teal;;
+$teal: #36a0d4;
+$blue2: #00263e;
 $g1: black;
+$white1: white;
 :root {
   font-family: brandon-grotesque, sans-serif;
   font-weight: 400;
@@ -8,6 +10,9 @@ $g1: black;
 html {
     padding:0px;
     margin:0px;
+    background-color:black;
+    scroll-behavior: smooth;
+
 }
 body {
     margin:0px;
@@ -15,34 +20,47 @@ body {
 }
 div {
     margin:0px;
+    background-color: $white1;
 }
-@keyframes round_corners {
+h5 {
+  margin:0px;
+}
+form {
+  display:flex;
+  flex-flow: column;
+}
+
+@keyframes smooth_to_square {
     from {
-        // border: 1px solid black;
-        border-radius:20px;
-        margin-left:5px;
-        margin-right:5px;
-        background-color: rbga(00,00,00,0.9);
+      border-radius:25px;
+      margin-top:50px;
+      // margin:10px;
+      margin-left:10px;
+      margin-right:10px;
     }
     to {
-        // border: 0px solid black;
-        border-radius:0px;
-        margin-left:0px;
-        margin-right:0px;
-        background-color: rbga(15,15,15,0.9);
+      border-radius:0px;
+      margin:0px;
     }
+  }
+.smooth_to_square_0 {
+  animation: smooth_to_square 2s;
 }
-.round_corners {
-    border-radius:0px;
-    margin-left:0px;
-    margin-right:0px;
-    background-color: rbga(15,15,15,0.9);
-    animation-duration: 2s;
-    animation-name: round_corners;
+.smooth_to_square_1 {
+  animation-delay: 0.25s;
+  animation: smooth_to_square 2s;
+}
+.smooth_to_square_2 {
+  animation-delay: 0.5s;
+  animation: smooth_to_square 2s;
+}
+
+#div1 {
+  display:flex; justify-content:center; align-items:center; overflow:auto; margin-top:15px
 }
 
 .title-text {
-  color: teal;
+  color: $teal;
   text-align: center;
   font-size: 70px;
   margin:0px;
@@ -50,20 +68,20 @@ div {
 
 button {
   text-decoration: none;
-  border: 3px solid teal;
+  border: 3px solid $teal;
   border-radius: 3px;
   width: 300px;
   height: 50px;
-  background-color: teal;
-  box-shadow: inset 0 0 0 0 #00263e;
+  background-color: $teal;
+  box-shadow: inset 0 0 0 0 $blue2;
   transition: ease-out 0.1s;
   font-weight: bolder;
   font-size: 20px;
-  margin-top: 10px;
 }
 button:hover {
-  border: 3px solid #00263e;
-  box-shadow: inset 300px 0 0 0 #00263e;
+  border: 3px solid $blue2;
+  box-shadow: inset 300px 0 0 0 $blue2;
   cursor: pointer;
   color: #000;
 }
+
