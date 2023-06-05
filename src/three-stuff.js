@@ -1,5 +1,6 @@
 export class FullCanvas {
   constructor() {
+    this.prev_t = 0;
     this.cubeList = [];
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -13,13 +14,12 @@ export class FullCanvas {
     this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.camera.position.setZ(30);
-    this.camera.position.setX(-3);
+    this.camera.position.setX(-4);
     this.renderer.render(this.scene, this.camera);
     this.camera.updateProjectionMatrix();
     this.pointLight.position.set(100, 100, 100);
     this.scene.add(this.pointLight)
-    for (let index = 0; index < 25; index++) { this.cubeList.push(this.addWireFrameCube(7)) }
-    for (let index = 0; index < 2; index++) {this.addWireFrameCube(20) }
+    for (let index = 0; index < 30; index++) { this.cubeList.push(this.addWireFrameCube(7)) }
     this.grid.position.x -= 505.1
     this.gridEdge.position.x -= 505;
     this.gridEdge.material.linewidth = 3;
@@ -67,9 +67,15 @@ export class FullCanvas {
   }
 
   moveCamera = () => {
-    const t = -document.body.getBoundingClientRect().top;
-    this.camera.position.z = (-t * 0.025) + 100;
-    this.gridEdge.rotation.y -= 0.4
+    const t = document.body.getBoundingClientRect().top;
+    const diff = this.prev_t-t;
+    // console.log(this.prev_t)
+    // console.log(t);
+    // console.log(diff);
+    // console.log("------------")
+    this.camera.position.z = (-t * 0.03) + 100;
+    this.gridEdge.rotation.y -= diff * 0.001;
+    this.prev_t = t;
   }
 
 }

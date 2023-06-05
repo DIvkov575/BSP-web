@@ -16,37 +16,36 @@
   <textarea id="url" style="display: none;">dmitriy@ivkov.net</textarea>
   <div id="preloader"></div>
 
-  <div style="background-color: rbga(00,00,00,0.9); padding:30px;margin:10px;margin-top:25px; border-radius:20px; display:flex; flex-flow:column; align-items:center; ">
+
+  <div class="welcome">
       <h4 class="title-text" style="font-size: 6.5vw; margin-bottom:20px">Belmont School of Code</h4>
       <img src="./assets/logo1.png" style="width:55px; height:55px;" alt="logo" />
 
-      <div id="div1">
-        <h5 style="font-size:20px; margin-right:10px">Give your child
+      <div>
+        <h5 style="font-size:20px; margin-right:10px; text-align:center; margin:10px;">Give your child
           the skills of tomorrow
        <br />
-        Be prepared and take a coding class</h5>
-        <button onclick="document.getElementById('ChooseUs-scroll-padding').scrollIntoView();">Continue</button>
+        Take a coding class</h5>
+        <button onclick="document.querySelector('#chooseus-scroll-padding').scrollintoview();">Continue</button>
         <!-- <button id="b1">Continue</button> -->
       </div>
   </div>
 
+<div style="height:300px; background-color:transparent"></div>
 
+<div style="padding:30px" class="ChooseUs">
 
-  <div id="ChooseUs-scroll-padding" style="margin-top:1200px; padding-top:400px;background-color:transparent">
-    <div style="padding:30px" class="ChooseUs">
-
-      <h4 class="title-text" style="font-size:5vw">Why Choose Us?</h4>
-      <ul>
-        <li>Experienced and knowledgeable teachers and staff</li>
-        <li>Proven teaching material and syllabus for optimal results</li>
-        <li>An innovative learning format that combines the best of personalized 1-on-1 instruction and engaging group
-          lessons</li>
-        <li>Small class sizes for individual attention and active participation</li>
-      </ul>
-    </div>
+    <h4 class="title-text" style="font-size:5vw">Why Choose Us?</h4>
+    <ul>
+      <li>Experienced and knowledgeable teachers and staff</li>
+      <li>Proven teaching material and syllabus for optimal results</li>
+      <li>An innovative learning format that combines the best of personalized 1-on-1 instruction and engaging group
+        lessons</li>
+      <li>Small class sizes for individual attention and active participation</li>
+    </ul>
   </div>
 
-  <div class="py101"style="padding:30px;padding-bottom:50px; display:flex; flex-flow:column;background-color:rgb(225,225,225)">
+  <div class="py101">
     <h4 class="title-text" style="font-size:5vw">Python 101</h4>
     <h5 style="margin-top:15px;">Python 101 is an introductory course which covers everying you need to begin programming. Due to the dynamic
       pacing of our classes, course completion time varies</h5>
@@ -62,45 +61,53 @@
 
   <div class="pricing-div" style="padding:30px">
     <h4 class="title-text" style="font-size:5vw">Pricing</h4>
-
-    <div class="tri-box-wrapper">
-      <div class="tri-box" style="padding-top:0%; padding-bottom:2.5%;">
-        <h6 class="t3"><u>10 Classes</u><br>
-          10 hours<br>
-          $150($15.00 per class)</h6>
+    <h5>Each class is a 1 hour remote session</h5>
+    <div class="di-box-wrapper">
+      <div>
+        <h5>10 classes</h5>
+        <br/>
+        <h5>$150 ($15.00 per class)</h5>
       </div>
-
-      <div class="tri-box" style="padding-top:0%; padding-bottom:2.5%;">
-        <h6 class="t3"><u>20 Classes</u><br>
-          20 hours<br>
-          250 ($12.50 per class)</h6>
-      </div>
-
-      <div class="tri-box" style="padding-top:0%; padding-bottom:2.5%;">
-        <h6 class="t3"><u>30 Classes (full course)</u><br>
-          30 hours<br>
-          $300 ($10.00 per class)</h6>
+      <div>
+        <h5>30 classes</h5>
+        <br/>
+        <h5>$300 ($10.00 per class)</h5>
       </div>
     </div>
-  </div>
+    </div>
+
+  <!--   <div class="tri-box-wrapper"> -->
+  <!--     <div class="tri-box" style="padding-top:0%; padding-bottom:2.5%;"> -->
+  <!--       <h6 class="t1"><u>10 Classes</u><br> -->
+  <!--         10 hours<br> -->
+  <!--         $150 ($15.00 per class)</h6> -->
+  <!--     </div> -->
+
+  <!--     <div class="tri-box" style="padding-top:0%; padding-bottom:2.5%;"> -->
+  <!--       <h6 class="t1"><u>20 Classes</u><br> -->
+  <!--         20 hours<br> -->
+  <!--         250 ($12.50 per class)</h6> -->
+  <!--     </div> -->
+
+  <!--     <div class="tri-box" style="padding-top:0%; padding-bottom:2.5%;"> -->
+  <!--       <h6 class="t1"><u>30 Classes (full course)</u><br> -->
+  <!--         30 hours<br> -->
+  <!--         $300 ($10.00 per class)</h6> -->
+  <!--     </div> -->
+  <!--   </div> -->
+  <!-- </div> -->
 
   <div id="form-wrapper" style="margin-top:50px;">
     <form id="form1">
       <h4 class="title-text" style="font-size:5vw">Free Trial Sign-Up</h4>
 
       <div>
-        <label for="firstName"><b>First Name</b></label>
-        <input type="text" name="firstName" required="">
+        <label for="fulltName">Full Name</label>
+        <input type="text" name="fullName" style="height:15px" required="">
       </div>
 
       <div>
-        <label for="lastName"><b>Last Name</b></label>
-        <input type="text" name="lastName" required="">
-      </div>
-
-
-      <div>
-        <label for="email"><b>Email</b></label>
+        <label for="email">Email</label>
         <input type="email" name="email" required="">
       </div>
 
@@ -109,16 +116,21 @@
         <input type="text" name="date" placeholder="Please enter some possible dates">
       </div>
 
-      <div>
-        <label for="usr_name">
+      <div style="flex-flow:row;justfiy-content:start">
+        <label for="usr_name" style="margin:0px;">
           I have read
-          <a href="./assets/terms.txt" target="_blank" style="color: #5ec9cc;">
+          <a href="./assets/terms.txt" target="_blank" style="color: #36a0d4;">
             Terms and Conditions
           </a>
         </label>
+        <div style="padding:0px; margin:0px; height:20px; width:20px">
+        <input type="checkbox" name="usr_name" style="width:10px" required="">
+        </div>
       </div>
 
-      <button>Submit</button>
+      <!-- <div> -->
+        <button>Submit</button>
+      <!-- </div> -->
     </form>
   </div>
 
