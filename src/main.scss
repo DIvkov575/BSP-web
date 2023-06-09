@@ -4,7 +4,7 @@ $g1: rgb(225,225,225);
 $g2: rgb(50,50,50);
 $w1: white;
 $h4-1:calc(9px + 1.25vw);
-$h4-2:calc(10px + 1.25vw);
+$h4-2:calc(12px + 1.25vw);
 
 :root {
   font-family: brandon-grotesque, sans-serif;
@@ -51,6 +51,179 @@ button:hover {
   box-shadow: inset 300px 0 0 0 $blue2;
   cursor: pointer;
   color: #000;
+}
+
+
+.di-box-wrapper {
+  display:flex;
+  justify-content: space-evenly;
+  div {
+    background-color:$g1;
+    padding:15px;
+    // width:40%;
+    border: 0.5px solid black;
+    border-radius:5px;
+    margin:10px;
+    display:flex;
+    flex-flow:column;
+    justify-content:center;
+    align-items: center;
+
+    br {
+      content: "";
+      line-height:0px;
+    }
+  }
+}
+
+@mixin bigwrap {
+  border-radius:15px;
+  margin-top:20px;
+  margin-left:2vw;
+  margin-right:2vw;
+}
+
+.welcome {
+  padding:30px;
+  margin:10px;
+  margin-top:25px;
+  border-radius:20px;
+  display:flex;
+  flex-flow:column;
+  align-items:center;
+  div {
+    display:flex;
+    justify-content:center !important;
+    align-items:center;
+    margin-top:15px
+  }
+}
+
+.ChooseUs {
+  @include bigwrap
+  li {
+    font-size: $h4-2;
+  }
+}
+
+.py101 {
+  @include bigwrap
+  padding:30px;
+  padding-bottom:50px;
+  display:flex;
+  flex-flow:column;
+  background-color:rgb(225,225,225);
+  h5, h4 {
+    font-size: $h4-1;
+  }
+  li {
+    font-size: $h4-2;
+  }
+  ul {
+    margin:0px;
+  }
+}
+
+.pricing-div {
+  @include bigwrap
+  h5 {
+    text-align:center;
+    font-size: $h4-2;
+  }
+}
+#form-wrapper {
+  margin: 15px;
+  border-radius:15px;
+  background-color:$g2;
+  padding:15px;
+  div {
+    display:flex;
+    background-color:$g2;
+    margin-left:15px;
+    margin-right:15px;
+    margin-bottom:10px;
+    display:flex;
+    flex-flow:column;
+    justify-content:flex-start;
+    label {
+      font-size:20px;
+      color: $w1;
+      a {
+        font-weight: 400;
+      }
+    }
+    input {
+      flex-grow:1;
+      height:20px !important;
+    }
+    input[type=checkbox] {
+      margin-left:5px;
+      transform: scale(1.5);
+      }
+    input[type=text], input[type=email] {
+      border-radius:5px;
+      max-width:450px;
+    }
+  }
+    button {
+      margin-left:15px;
+      width: 150px !important;
+      height: 30px !important;
+    }
+
+}
+
+@media (max-width: 454px) {
+.welcome {
+  div {
+    flex-flow: wrap;
+  }
+}
+  .di-box-wrapper {
+    flex-flow: column;
+
+    div {
+      flex-grow:1 !important;
+      h5 {
+        font-size:15px;
+        margin:0px;
+      }
+    }
+  }
+  // canvas, #spacer1 {
+  //   display: none;
+  // }
+  #form-wrapper {
+    label {
+      font-size:15px !important;
+    }
+  }
+  button {
+    // flex-grow:1 !important;
+    width: 85vw;
+  }
+
+}
+
+#preloader {
+  background: #000 url(assets/loading3.gif) no-repeat center center;
+  top:-5vh;
+  height: 110vh;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}
+
+.title-text {
+  color: $teal;
+  text-align: center;
+  font-size: 70px;
+  margin:0px;
+}
+
+.t1 {
+  font-size: 2.5vw;
+  text-align:center;
 }
 // #slider {
 //     // position: absolute;
@@ -104,145 +277,3 @@ button:hover {
 //   animation-delay: 1s;
 //   animation: smooth_to_square 3s forwards;
 // }
-
-.title-text {
-  color: $teal;
-  text-align: center;
-  font-size: 70px;
-  margin:0px;
-}
-
-.t1 {
-  font-size: 2.5vw;
-  text-align:center;
-}
-
-.di-box-wrapper {
-  display:flex;
-  justify-content: space-evenly;
-  div {
-    background-color:$g1;
-    padding:15px;
-    // width:40%;
-    border: 0.5px solid black;
-    border-radius:5px;
-    margin:10px;
-    display:flex;
-    flex-flow:column;
-    justify-content:center;
-    align-items: center;
-
-    br {
-      content: "";
-      line-height:0px;
-    }
-  }
-}
-
-@mixin bigwrap {
-  border-radius:25px;
-  margin-top:20px;
-  margin-left:2vw;
-  margin-right:2vw;
-}
-
-.welcome {
-  padding:30px;
-  margin:10px;
-  margin-top:25px;
-  border-radius:20px;
-  display:flex;
-  flex-flow:column;
-  align-items:center;
-  div {
-    display:flex;
-    justify-content:center !important;
-    align-items:center;
-    margin-top:15px
-  }
-}
-
-.ChooseUs {
-  @include bigwrap
-}
-
-.py101 {
-  @include bigwrap
-  padding:30px;
-  padding-bottom:50px;
-  display:flex;
-  flex-flow:column;
-  background-color:rgb(225,225,225);
-  h5 {
-    font-size: $h4-1;
-
-  }
-}
-
-.pricing-div {
-  @include bigwrap
-  h5 {
-    text-align:center;
-    font-size: $h4-2;
-  }
-}
-#form-wrapper {
-  margin: 15px;
-  border-radius:15px;
-  background-color:$g2;
-  padding:15px;
-  div {
-    display:flex;
-    background-color:$g2;
-    margin-left:15px;
-    margin-right:15px;
-    margin-bottom:10px;
-    display:flex;
-    flex-flow:column;
-    justify-content:flex-start;
-    label {
-      font-size:15px;
-      color: $w1;
-      a {
-        font-weight: 400;
-      }
-    }
-    input {
-      flex-grow:1;
-      height:20px !important;
-    }
-    input[type=checkbox] {
-      margin-left:5px;
-      transform: scale(1.5);
-      }
-    input[type=text] {
-      border-radius:5px;
-    }
-  }
-    button {
-      margin-left:15px;
-      width: 150px !important;
-      height: 30px !important;
-    }
-
-}
-
-@media (max-width: 454px) {
-.welcome {
-  div {
-    flex-flow: wrap;
-  }
-}
-  .di-box-wrapper {
-    flex-flow: column;
-
-    div {
-      flex-grow:1 !important;
-      h5 {
-        font-size:15px;
-        margin:0px;
-      }
-    }
-  }
-
-}

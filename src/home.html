@@ -4,9 +4,11 @@
 
 <head>
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="stuff ig">
-
+  <meta name="description" content="Learn programming and software development at our top-rated programming school. We offer comprehensive courses in Python, JavaScript, Java, and more. Start your coding journey today.">
+  <meta name="keywords" content="programming school, coding education, software development courses">
   <title>BSC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.svg">
 </head>
 
 <body>
@@ -26,37 +28,34 @@
           the skills of tomorrow
        <br />
         Take a coding class</h5>
-        <button onclick="document.querySelector('#chooseus-scroll-padding').scrollintoview();">Continue</button>
-        <!-- <button id="b1">Continue</button> -->
+          <button id="b1" onclick="document.querySelector('#form-wrapper').scrollIntoView();">Sign Up</button>
       </div>
   </div>
 
-<div style="height:300px; background-color:transparent"></div>
+<div id="spacer1" style="height:300px; background-color:transparent"></div>
 
 <div style="padding:30px" class="ChooseUs">
 
     <h4 class="title-text" style="font-size:5vw">Why Choose Us?</h4>
     <ul>
-      <li>Experienced and knowledgeable teachers and staff</li>
-      <li>Proven teaching material and syllabus for optimal results</li>
-      <li>An innovative learning format that combines the best of personalized 1-on-1 instruction and engaging group
-        lessons</li>
-      <li>Small class sizes for individual attention and active participation</li>
+      <li>Experienced and knowledgeable staff</li>
+      <li>A learning format that combines the best of personalized 1-on-1 instruction and engaging group lessons</li>
+      <li>Small class sizes individual attention and active participation</li>
     </ul>
   </div>
 
   <div class="py101">
     <h4 class="title-text" style="font-size:5vw">Python 101</h4>
-    <h5 style="margin-top:15px;">Python 101 is an introductory course which covers everying you need to begin programming. Due to the dynamic
-      pacing of our classes, course completion time varies</h5>
+    <h4 style="margin-top:15px;">Python 101 is an introductory course which covers everying you need to begin programming. Due to the dynamic
+      pacing of our classes, course completion time varies</h4>
     <ul>
-      <li>Fundamentals (5-10): Variables, operators, conditions, Loops, builtin Data-structures</li>
-      <li>Intermediate (10-15): OOP, Decorators, Lambda, Error hanadling, Dunder methods, FileIo</li>
-      <li>Advanced (10-15): Student pursue's a topic of choice (Web-dev, Games, Machine-Learning, or Algorithms)</li>
+      <li><b>Fundamentals (5-10 classes):</b> Variables, operators, conditions, Loops, builtin Data-structures</li>
+      <li><b>Intermediate (10-15 classes):</b>OOP, Decorators, Lambda, Error hanadling, Dunder methods, FileIo</li>
+      <li><b>Advanced (10-15 classes):</b>  Student pursue's a topic of choice (Web-dev, Games, Machine-Learning, or Algorithms)</li>
     </ul>
 
-    <h5> Even after a student graduates we provide a list of projects or 'next-steps', for students to pursue
-      independently </h5>
+    <h4> After a student graduates we provide a list of projects or 'next-steps', for students to pursue
+      independently </h4>
   </div>
 
   <div class="pricing-div" style="padding:30px">
@@ -69,51 +68,30 @@
         <h5>$150 ($15.00 per class)</h5>
       </div>
       <div>
-        <h5>30 classes</h5>
+        <h5>20 classes</h5>
         <br/>
-        <h5>$300 ($10.00 per class)</h5>
+        <h5>$200 ($10.00 per class)</h5>
       </div>
     </div>
     </div>
 
-  <!--   <div class="tri-box-wrapper"> -->
-  <!--     <div class="tri-box" style="padding-top:0%; padding-bottom:2.5%;"> -->
-  <!--       <h6 class="t1"><u>10 Classes</u><br> -->
-  <!--         10 hours<br> -->
-  <!--         $150 ($15.00 per class)</h6> -->
-  <!--     </div> -->
-
-  <!--     <div class="tri-box" style="padding-top:0%; padding-bottom:2.5%;"> -->
-  <!--       <h6 class="t1"><u>20 Classes</u><br> -->
-  <!--         20 hours<br> -->
-  <!--         250 ($12.50 per class)</h6> -->
-  <!--     </div> -->
-
-  <!--     <div class="tri-box" style="padding-top:0%; padding-bottom:2.5%;"> -->
-  <!--       <h6 class="t1"><u>30 Classes (full course)</u><br> -->
-  <!--         30 hours<br> -->
-  <!--         $300 ($10.00 per class)</h6> -->
-  <!--     </div> -->
-  <!--   </div> -->
-  <!-- </div> -->
-
-  <div id="form-wrapper" style="margin-top:50px;">
+  <div id="form-wrapper" style="margin-top:40px;">
     <form id="form1">
-      <h4 class="title-text" style="font-size:5vw">Free Trial Sign-Up</h4>
+      <h4 class="title-text" style="font-size:5vw">Conctact Us</h4>
 
       <div>
-        <label for="fulltName">Full Name</label>
+        <label for="fullName">Parent Name</label>
         <input type="text" name="fullName" style="height:15px" required="">
+      </div>
+
+      <div>
+        <label for="StudentName">Student Name and Age</label>
+        <input type="text" name="StudentName" style="height:15px" required="">
       </div>
 
       <div>
         <label for="email">Email</label>
         <input type="email" name="email" required="">
-      </div>
-
-      <div>
-        <label for="date">Date</label>
-        <input type="text" name="date" placeholder="Please enter some possible dates">
       </div>
 
       <div style="flex-flow:row;justfiy-content:start">
@@ -124,16 +102,18 @@
           </a>
         </label>
         <div style="padding:0px; margin:0px; height:20px; width:20px">
-        <input type="checkbox" name="usr_name" style="width:10px" required="">
+        <input type="checkbox" name="usr_name" id="check1" style="width:10px" required="">
         </div>
       </div>
-
-      <!-- <div> -->
-        <button>Submit</button>
-      <!-- </div> -->
+      <button id="b2">Submit</button>
     </form>
+    <h4 style="margin-left:10px;color:white;">You can also contact us at dmitriyivkov@belmontcodes.com</h4>
   </div>
 
+    <script defer>
+      let loader = document.getElementById("preloader");
+      loader.style.display = "none"
+    </script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.js"></script>
