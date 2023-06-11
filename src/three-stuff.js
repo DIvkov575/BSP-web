@@ -1,3 +1,6 @@
+// import THREE from 'three';
+// const THREE = window.three;
+
 export class FullCanvas {
   constructor() {
     this.prev_t = 0;

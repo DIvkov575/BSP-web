@@ -20,7 +20,7 @@ module.exports = {
     },
     minimizer: [
       // new OptimizeCssAssetsPlugin(),
-      new TerserPlugin(),
+      // new TerserPlugin(),
       new HtmlWebpackPlugin({
         template: "./src/home.html",
         minify: {
@@ -32,7 +32,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: "[name].[contentHash].css" }),
+    new MiniCssExtractPlugin({ filename: "[name].css" }),
     new CleanWebpackPlugin()
   ],
   module: {
