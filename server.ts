@@ -1,4 +1,5 @@
 import express, {Request, Response} from 'express';
+import path from 'path';
 // const nodemailer = require("nodemailer");
 import nodemailer from 'nodemailer';
 import { google } from 'googleapis';
@@ -6,7 +7,6 @@ import dotenv from 'dotenv';
 
 dotenv.config()
 const server = express();
-
 const transporter = nodemailer.createTransport({
   service: 'hotmail',
   auth: {
@@ -63,7 +63,7 @@ function send(content: any){
   console.log(input)
 }
 
-server.use(express.static('dist'))
+server.use(express.static(path.join(__dirname, 'dist')));
 // server.use(express.json())
 
 // ---------------------------------

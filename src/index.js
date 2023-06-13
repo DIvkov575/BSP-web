@@ -1,7 +1,17 @@
-// import THREE from 'three';
-// const THREE = window.three;
+// import "./main.scss";
+// import  "./assets/terms.txt";
+// import "./assets/logo1.png";
+// import  "./assets/loading3.gif";
+// import "./assets/favicon.svg";
 
-export class FullCanvas {
+// require('./main.scss');
+require('./home.html');
+// require('./assets/terms.txt');
+// require('./assets/logo1.png');
+// require('./assets/loading3.gif');
+// // require('./assets/favicon.svg');
+
+class FullCanvas {
   constructor() {
     this.prev_t = 0;
     this.cubeList = [];
@@ -82,3 +92,43 @@ export class FullCanvas {
   }
 
 }
+let canv = new FullCanvas();
+if (visualViewport != null) {visualViewport.addEventListener("resize", (event) => {canv = new FullCanvas();});}
+window.onscroll = () => {canv.moveCamera();}
+canv.moveCamera()
+canv.animate()
+
+const form = document.getElementById('form1'); 
+const termsButton=  document.getElementById('check1');
+const button1 = document.querySelector("#b2") ;
+button1.addEventListener('click', buttonFunc1);
+
+function buttonFunc1(e){
+    e.preventDefault()
+    let input = []
+
+    input.push((form.elements[0]).value);
+    for (let i = 1; i < 3; i++){
+        if (form.elements[i].value.length <= 1) {alert("Input value too short or Missing"); return;}
+        if (form.elements[i].value.length >= 50) { alert("Please shorten input"); return;}
+        input.push((form.elements[i]).value)
+    }
+    if (!termsButton.checked) {alert("Please check that you have read terms and conditions"); return;}
+    submit(input)
+    form.reset();
+}
+
+async function submit(input){
+    // console.log(input)
+    const res = await fetch(window.location.href, {
+        method: 'POST',
+        headers: {
+        "Content-Type":"application/json"
+    },
+        body: JSON.stringify({
+        parcel: input.join(', ') 
+        })
+    })
+    alert("Message Sending");
+}
+console.log("TS connected");
