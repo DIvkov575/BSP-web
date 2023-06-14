@@ -5,7 +5,7 @@
 // import "./assets/favicon.svg";
 
 // require('./main.scss');
-require('./home.html');
+// require('./home.html');
 // require('./assets/logo1.png');
 // require('./assets/terms.txt');
 // require('./assets/loading3.gif');
