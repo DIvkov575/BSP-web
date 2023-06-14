@@ -1,45 +1,57 @@
 const path = require("path");
-const common = require("./webpack.common");
-const merge = require("webpack-merge");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+var HtmlWebpackPlugin = require("html-webpack-plugin");
 
-module.exports = {
-  // extends: path.resolve(__dirname, "./webpack.common.js"),
+module.exports =  {
+  mode: "production",
   entry: {
     main: "./src/index.js",
-    // assets: ["./src/assets/logo1.png", "./src/assets/loading3.gif", "./src/assets/favicon.svg", "./src/assets/terms.txt"]
   },
-  mode: "production",
   output: {
-    filename: "[name].js",
-    path: path.resolve(__dirname, "dist"),
+    filename: "[name].[contentHash].bundle.js",
+    path: path.resolve(__dirname, "dist")
+  },
+  optimization: {
+    minimizer: [
+      new HtmlWebpackPlugin({
+        template: "./src/home.html",
+        minify: {
+          removeAttributeQuotes: true,
+          collapseWhitespace: true,
+          removeComments: true
+        }
+      })
+    ]
   },
   plugins: [
-  new MiniCssExtractPlugin({ filename: "[name].css" }),
-  new HtmlWebpackPlugin({
-  template: "./src/home.html",
-  hash:true,
-})
+    new MiniCssExtractPlugin({ filename: "[name].[contentHash].css" }),
+    new CleanWebpackPlugin.CleanWebpackPlugin()
   ],
   module: {
-    rules: [ 
-      // {
-        // test: /\.html$/,
-        // use:
+    rules: [
       {
-        test: /\.scss$/i,
+        test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader, //3. Extract css into files
-          // "style-loader",
           "css-loader", //2. Turns css into commonjs
           "sass-loader" //1. Turns sass into css
         ]
       },
+     {
+        test: /\.html$/,
+        use: ["html-loader"]
+      },
       {
-      test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-      type: 'asset/resource',
-    },
-   ],
+        test: /\.(svg|png|jpg|gif)$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            name: "[name].[hash].[ext]",
+            outputPath: "imgs"
+          }
+        }
+      }
+    ]
   }
 };
