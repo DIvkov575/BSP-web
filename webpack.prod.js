@@ -1,57 +1,50 @@
 const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-module.exports =  {
-  mode: "production",
+module.exports = {
   entry: {
-    main: "./src/index.js",
+    three: "./src/three.js",
+    main: ["./src/main.js", "./src/styles.scss"],
+    assets: ["./src/assets/favicon.svg", "./src/assets/logo1.png", "./src/assets/terms.txt"],
   },
+  mode: "production",
   output: {
-    filename: "[name].[contentHash].bundle.js",
-    path: path.resolve(__dirname, "dist")
-  },
-  optimization: {
-    minimizer: [
-      new HtmlWebpackPlugin({
-        template: "./src/home.html",
-        minify: {
-          removeAttributeQuotes: true,
-          collapseWhitespace: true,
-          removeComments: true
-        }
-      })
-    ]
+    assetModuleFilename: 'assets/[name][ext]',
+    filename: "[name].[contenthash].js",
+    path: path.resolve(__dirname, "dist"),
+    clean: true,
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: "[name].[contentHash].css" }),
-    new CleanWebpackPlugin.CleanWebpackPlugin()
+  new MiniCssExtractPlugin({ filename: "[name].css" }),
+  new HtmlWebpackPlugin({
+  template: "./src/home.html",
+  inject: 'head',
+})
   ],
   module: {
-    rules: [
+    rules: [ 
+      // {
+      //   test: /\.html$/,
+      //   use: "html-loader",
+      //   // type: 'asset/resoure',
+      //   // generator: {
+      //   //   filename: 
+      //   // }
+      // },
       {
-        test: /\.scss$/,
+        test: /\.scss$/i,
         use: [
-          MiniCssExtractPlugin.loader, //3. Extract css into files
-          "css-loader", //2. Turns css into commonjs
-          "sass-loader" //1. Turns sass into css
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "sass-loader" 
         ]
       },
-     {
-        test: /\.html$/,
-        use: ["html-loader"]
-      },
       {
-        test: /\.(svg|png|jpg|gif)$/,
-        use: {
-          loader: "file-loader",
-          options: {
-            name: "[name].[hash].[ext]",
-            outputPath: "imgs"
-          }
-        }
-      }
-    ]
+      test: /\.(?:ico|gif|png|jpg|jpeg|svg|txt)$/i,
+      type: 'asset/resource',
+    },
+   ],
   }
 };

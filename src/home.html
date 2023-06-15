@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -9,10 +8,12 @@
   <title>BSC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="icon" type="image/x-icon" href="./assets/favicon.svg">
-   <script type="module" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-   <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.js"></script>
-   <script defer=defer src="main.js"></script>
-   <link href="./main.scss" rel="stylesheet">
+  <!-- <script type="module" src="./three.js"></script> -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <!-- <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r13/three.js" integrity="sha512-4/BqN2E/1M4ggwF2b8XMMbGe8MNveHAODDz3K6zsNQc56pIHewrkjbfrqoZFn1TN4wUHpClHxtzL9MadH+athg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/9/three.js" integrity="sha512-+ZvTVDyitZZfKtOX1+zl/Kea+RG8BCQ/Qbl532UuIgFMAz7iXouAvwXWaFsXwG7RblwC3k4KiF6nHgRcz5LsRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r99/three.js" ></script> -->
 </head>
 
 <body>
@@ -85,28 +86,28 @@
 
       <div>
         <label for="fullName">Parent Name</label>
-        <input type="text" name="fullName" style="height:15px" required="">
+        <input type="text" name="fullName" id="fullName" style="height:15px" required="">
       </div>
 
       <div>
-        <label for="StudentName">Student Name and Age</label>
-        <input type="text" name="StudentName" style="height:15px" required="">
+        <label for="studentName">Student Name and Age</label>
+        <input type="text" name="studentName" id="studentName" style="height:15px" required="">
       </div>
 
       <div>
         <label for="email">Email</label>
-        <input type="email" name="email" required="">
+        <input type="email" name="email" id="email" required="">
       </div>
 
       <div style="flex-flow:row;justfiy-content:start">
-        <label for="usr_name" style="margin:0px;">
+        <label for="check1" style="margin:0px;">
           I have read
           <a href="./assets/terms.txt" target="_blank" style="color: #36a0d4;">
             Terms and Conditions
           </a>
         </label>
         <div style="padding:0px; margin:0px; height:20px; width:20px">
-        <input type="checkbox" name="usr_name" id="check1" style="width:10px" required="">
+        <input type="checkbox" name="check1" id="check1" style="width:10px" required="">
         </div>
       </div>
       <button id="b2">Submit</button>
