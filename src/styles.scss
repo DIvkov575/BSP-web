@@ -3,7 +3,6 @@ $blue2: #00263e;
 $g1: rgb(225,225,225);
 $g2: rgb(50,50,50);
 $w1: white;
-$w2: rgb(200,200,200);
 $h4-1:calc(8px + 1vw);
 $h4-2:calc(11px + 1vw);
 $h4-3:calc(30px + 1vw);
@@ -146,22 +145,11 @@ button:hover {
     font-size: $h4-1;
   }
 }
-.footer {
-  @include bigwrap;
-  background-color: rgba(25,25,25,0.75);
-  padding:25px;
-  margin-bottom: 25px;
-  margin-top: 50px;
-  h5 {
-    text-align:center;
-    color:$w2;
-    font-size: $h4-2;
-  }
-}
 #form-wrapper {
   max-width:800px;
   margin: auto;
-  // margin: 15px;
+  margin-top:75px;
+  margin-bottom:50px;
   border-radius:15px;
   background-color:$g2;
   padding:15px;
@@ -201,7 +189,6 @@ button:hover {
       width: 150px !important;
       height: 30px !important;
     }
-
 }
 
 
@@ -222,16 +209,12 @@ button:hover {
       }
     }
   }
-  // canvas, #spacer1 {
-  //   display: none;
-  // }
   #form-wrapper {
     label {
       font-size:15px !important;
     }
   }
   button {
-    // flex-grow:1 !important;
     width: 85vw;
   }
 
