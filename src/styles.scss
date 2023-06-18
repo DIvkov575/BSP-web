@@ -3,8 +3,10 @@ $blue2: #00263e;
 $g1: rgb(225,225,225);
 $g2: rgb(50,50,50);
 $w1: white;
-$h4-1:calc(8px + 1.2vw);
-$h4-2:calc(11px + 1.2vw);
+$w2: rgb(200,200,200);
+$h4-1:calc(8px + 1vw);
+$h4-2:calc(11px + 1vw);
+$h4-3:calc(30px + 1vw);
 
 :root {
   font-family: brandon-grotesque, sans-serif;
@@ -136,7 +138,7 @@ button:hover {
   div {
     border-radius:8px;
     margin: 5px;
-    padding:5px;
+    padding:20px;
     border: 1px solid black;
   }
   h5 {
@@ -144,8 +146,22 @@ button:hover {
     font-size: $h4-1;
   }
 }
+.footer {
+  @include bigwrap;
+  background-color: rgba(25,25,25,0.75);
+  padding:25px;
+  margin-bottom: 25px;
+  margin-top: 50px;
+  h5 {
+    text-align:center;
+    color:$w2;
+    font-size: $h4-2;
+  }
+}
 #form-wrapper {
-  margin: 15px;
+  max-width:800px;
+  margin: auto;
+  // margin: 15px;
   border-radius:15px;
   background-color:$g2;
   padding:15px;
@@ -175,11 +191,9 @@ button:hover {
       }
     input[type=email] {
       border-radius:5px;
-      max-width:450px;
     }
     input[type=text] {
       border-radius:5px;
-      max-width:450px !important;
     }
   }
     button {
@@ -235,7 +249,7 @@ button:hover {
 .title-text {
   color: $teal;
   text-align: center;
-  font-size: $h4-2;
+  font-size: $h4-3 !important;
   margin:0px;
 }
 

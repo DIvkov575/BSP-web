@@ -1,17 +1,4 @@
-// import  "./assets/terms.txt";
-// import "./assets/logo1.png";
-// import  "./assets/loading3.gif";
-// import "./assets/favicon.svg";
-
-// require('./main.scss');
-// require('./assets/terms.txt');
-// import "./main.scss";
-// require('./assets/logo1.png');
-// require('./assets/loading3.gif');
-// // require('./assets/favicon.svg');
-
 const THREE = require("./three.js");
-// const THREE = require('three.js');
 
 class FullCanvas {
   constructor() {
@@ -21,11 +8,12 @@ class FullCanvas {
     this.camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
     this.renderer = new THREE.WebGLRenderer({canvas: document.querySelector('#bg'),});
     this.pointLight = new THREE.PointLight(0xffffff, 1);
+
     this.gridGeo = new THREE.SphereGeometry( 500, 150,100);
     this.gridMat = new THREE.MeshPhongMaterial( { color: 0x000000 } );
     this.grid = new THREE.Mesh( this.gridGeo, this.gridMat );
-
     this.gridEdge = new THREE.EdgesHelper(this.grid, 0xaaaaff);
+
     this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.camera.position.setZ(30);
@@ -34,6 +22,7 @@ class FullCanvas {
     this.camera.updateProjectionMatrix();
     this.pointLight.position.set(100, 100, 100);
     this.scene.add(this.pointLight)
+
     for (let index = 0; index < 30; index++) { this.cubeList.push(this.addWireFrameCube(7)) }
     this.grid.position.x -= 505.1
     this.gridEdge.position.x -= 505;
