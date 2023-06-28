@@ -1,0 +1,10 @@
+src/
+node_modules/
+miscellaneous/
+.idea/
+webpack.*
+tsconfig.json
+server.ts
+README.md 
+bun.lockb
+compose-dev.yaml

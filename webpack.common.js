@@ -1,7 +1,7 @@
 const path = require("path");
 module.exports = {
   entry: {
-    main: "./src/index.js",
+    main: "./src/main.js",
     // assets: ["./src/assets/logo1.png", "./src/assets/loading3.gif", "./src/assets/favicon.svg", "./src/assets/terms.txt", "./"]
   },
   plugins: [
